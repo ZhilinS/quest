@@ -2,7 +2,7 @@
   <div v-if="success">
     <div class="notification is-success">
       <button class="delete" @click="closeNotify"></button>
-      Ой вей, правильный код! Получите ваши 100 кредитов!
+      Ой вей, правильный код! Получите ваши кредиты!
     </div>
   </div>
 </template>

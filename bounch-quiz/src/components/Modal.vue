@@ -16,6 +16,7 @@
         <footer class="modal-card-foot">
           <button class="button is-success" :class="danger" @click="postNumber">Отправить</button>
         </footer>
+        <button class="modal-close is-large" aria-label="close" v-if="ableToClose" @click="closeModal"></button>
       </div>
     </div>
   </div>
@@ -25,14 +26,18 @@
 
   const axios = require('axios');
 
+  let stepsToNumbers = {
+    1: 123123,
+    2: 321321
+  };
+
   export default {
-    props: ['step', 'number'],
+    props: ['step'],
 
     data() {
       return {
         dataShowModal: false,
         modalStep: this.step,
-        rightNumber: this.number,
         num: '',
         danger: ''
       }
@@ -41,12 +46,15 @@
     computed: {
       showModal() {
         return this.dataShowModal;
+      },
+      ableToClose() {
+        return this.modalStep !== 1;
       }
     },
 
     methods: {
       postNumber() {
-        if (this.num === this.rightNumber.toString()) {
+        if (this.num === stepsToNumbers[this.modalStep].toString()) {
           axios.post(
             'http://localhost:8501/api/modal/submit',
             {
@@ -55,6 +63,10 @@
             }
           ).then((response) => {
             this.dataShowModal = false;
+            this.num = '';
+            this.danger = '';
+
+            Event.$emit('update_score')
           }).catch((error) => {
             console.log(error)
           });
@@ -63,6 +75,10 @@
         } else {
           this.danger = 'is-danger'
         }
+      },
+
+      closeModal() {
+        this.dataShowModal = false;
       }
     },
 
@@ -73,6 +89,12 @@
         }).catch((error) => {
           console.log(error);
       });
+
+      Event.$on('open_modal', (id) => {
+        console.log('GOT EVENT: ' + id);
+        this.dataShowModal = true;
+        this.modalStep = id;
+      })
     },
   }
 

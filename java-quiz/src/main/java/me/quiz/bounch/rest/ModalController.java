@@ -3,10 +3,14 @@ package me.quiz.bounch.rest;
 import me.quiz.bounch.mongo.entity.Step;
 import me.quiz.bounch.mongo.repo.StepsRepo;
 import me.quiz.bounch.rest.req.TypedNumber;
+import me.quiz.bounch.rest.res.CurrentModalRes;
 import me.quiz.bounch.rest.res.StepRes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 import static java.util.Objects.isNull;
 
@@ -19,7 +23,6 @@ public class ModalController {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("submit")
     public void submit(@RequestBody TypedNumber number) {
-        System.out.println("GOT " + number.enteredNumber + " number from vue");
         stepsRepo.save(
                 new Step(number.step)
         );
@@ -41,5 +44,20 @@ public class ModalController {
                 step.stepNumber(),
                 step.success()
         );
+    }
+
+    @GetMapping("current")
+    public CurrentModalRes currentModal() {
+        final Optional<Integer> max = stepsRepo.findAll()
+                .stream()
+                .filter(Step::success)
+                .map(Step::stepNumber)
+                .max(Integer::compareTo);
+
+        if (max.isPresent()) {
+            return new CurrentModalRes(max.get() + 1);
+        }
+
+        return new CurrentModalRes();
     }
 }

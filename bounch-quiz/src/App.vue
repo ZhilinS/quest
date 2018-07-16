@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="root" class="container">
-      <notify></notify>
+      <hero-title></hero-title>
       <modal :step="1" :number="123123"></modal>
     </div>
   </div>
@@ -10,7 +10,7 @@
 <script>
 
   import Modal from './components/Modal.vue';
-  import Notify from './components/Notify.vue';
+  import HeroTitle from './components/HeroTitle.vue';
 
   export default {
     name: 'app',
@@ -20,16 +20,14 @@
       }
     },
 
-    components: { Modal, Notify }
+    components: { Modal, HeroTitle }
   }
 </script>
 
 <style>
 
   #root {
-    background-size: cover;
-    background: url('./assets/landscape2.jpg') no-repeat fixed center;
-    min-height: 100vh;
+    min-width: 100%;
   }
 
 </style>

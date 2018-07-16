@@ -1,5 +1,5 @@
 <template>
-  <div class="box" v-if="showModal">
+  <div v-if="showModal">
     <div class="modal is-active">
       <div class="modal-background"></div>
       <div class="modal-card">
@@ -57,7 +57,9 @@
             this.dataShowModal = false;
           }).catch((error) => {
             console.log(error)
-          })
+          });
+
+          Event.$emit('modal_success')
         } else {
           this.danger = 'is-danger'
         }

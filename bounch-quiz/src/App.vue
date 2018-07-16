@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="root" class="container">
+      <notify></notify>
       <modal :step="1" :number="123123"></modal>
     </div>
   </div>
@@ -9,6 +10,7 @@
 <script>
 
   import Modal from './components/Modal.vue';
+  import Notify from './components/Notify.vue';
 
   export default {
     name: 'app',
@@ -18,7 +20,7 @@
       }
     },
 
-    components: { Modal }
+    components: { Modal, Notify }
   }
 </script>
 

@@ -125,7 +125,7 @@
           }).catch((error) => {
             console.log(error)
           });
-      })
+      });
     },
 
     components: { Notify, ReverseTimer }

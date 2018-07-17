@@ -30,6 +30,8 @@
         <h2 class="subtitle">
           С этого момента начинается неожиданное путешествие или туда и обратно
         </h2>
+
+        <reverse-timer :date="1531938934"></reverse-timer>
       </div>
     </div>
     <div class="hero-foot"></div>
@@ -41,6 +43,7 @@
   const axios = require('axios');
 
   import Notify from './Notify.vue';
+  import ReverseTimer from './ReverseTimer.vue';
 
   export default {
 
@@ -79,7 +82,7 @@
       })
     },
 
-    components: { Notify }
+    components: { Notify, ReverseTimer }
   }
 
 </script>

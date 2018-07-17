@@ -3,7 +3,7 @@
     <div class="container">
       <div class="tile is-ancestor justified-tile">
         <div class="tile is-6">
-          <acrticle class="tile is-child">
+          <article class="tile is-child">
             <p class="title" style="text-align: center; color: white">Маленькая шалость</p>
             <div class="content">
               <p class="text-content">
@@ -22,7 +22,7 @@
                 Если закончилась зарядка для мозгов - ты опять знаешь куда идти ;)
               </p>
             </div>
-          </acrticle>
+          </article>
         </div>
       </div>
     </div>

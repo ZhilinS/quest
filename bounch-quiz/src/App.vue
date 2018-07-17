@@ -7,7 +7,7 @@
       <video-step v-if="showVideo"></video-step>
       <prize-preview></prize-preview>
       <footer-content></footer-content>
-      <modal :step="this.step" :number="123123"></modal>
+      <modal :step="this.step"></modal>
     </div>
   </div>
 </template>
@@ -25,10 +25,10 @@
   import VideoStep from './components/VideoStep.vue';
 
   let stepToTime = {
-    1:1531850400,
-    2:1532015180,
-    3:1531843050,
-    4:1531926000
+    1:1531846500,
+    2:1531846620,
+    3:1531846740,
+    4:1531846800
   };
 
   export default {

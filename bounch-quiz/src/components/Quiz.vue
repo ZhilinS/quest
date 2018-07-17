@@ -3,7 +3,7 @@
     <div class="card" v-if="!questFinished">
       <div class="card-image">
         <figure class="image is-4by3">
-          <img :src="question.src" alt="friends">
+          <img :src="question.src" :alt="question.alt">
         </figure>
       </div>
       <div class="card-content">
@@ -37,6 +37,7 @@
     1: {
       question: 'Some random question',
       src: './dist/images/friends.png',
+      alt: 'friends',
       variants: [
         {
           text: 'First variant',
@@ -59,6 +60,7 @@
     2: {
       question: 'Second question',
       src: '../assets/car.jpg',
+      alt: 'car',
       variants: [
         {
           text: 'First question variant',

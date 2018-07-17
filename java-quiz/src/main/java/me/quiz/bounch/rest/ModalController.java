@@ -23,7 +23,6 @@ public class ModalController {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("submit")
     public void submit(@RequestBody TypedNumber number) {
-        System.out.println("GOT : " + number.enteredNumber);
         stepsRepo.save(
                 new Step(number.step)
         );
@@ -31,7 +30,6 @@ public class ModalController {
 
     @GetMapping("step/{number}")
     public StepRes step(@PathVariable("number") int number) {
-        System.out.println("INSIDE STEP " + number);
         final Step step = stepsRepo.findByStepNumber(number);
 
         if (isNull(step)) {

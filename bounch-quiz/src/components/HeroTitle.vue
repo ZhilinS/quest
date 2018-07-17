@@ -45,7 +45,7 @@
   let stepToTime = {
     1:1531850400,
     2:1531828800,
-    3:1532023200,
+    3:1531843050,
     4:1532109600
   };
 
@@ -91,6 +91,10 @@
     },
 
     mounted() {
+      window.setInterval(() => {
+        this.now = Math.trunc((new Date()).getTime() / 1000);
+      },1000);
+
       axios.get("http://localhost:8501/api/modal/current")
         .then((response) => {
           this.step = response.data.step

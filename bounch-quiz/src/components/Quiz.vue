@@ -1,6 +1,6 @@
 <template>
   <section class="section centered">
-    <div class="card">
+    <div class="card" v-if="!questFinished">
       <div class="card-image">
         <figure class="image is-4by3">
           <img :src="question.src" alt="friends">
@@ -22,9 +22,13 @@
         </a>
       </div>
     </div>
+    <div class="content" v-if="questFinished">
+      <p>
+        Вот и закончился квест! Можно теперь ввести номер :)
+      </p>
+    </div>
   </section>
 </template>
-
 <script>
 
   const axios = require('axios');
@@ -80,6 +84,7 @@
     data() {
       return {
         num: 1,
+        maxQuestions: 2,
         selectedCorrect: false
       }
     },
@@ -87,6 +92,12 @@
     computed: {
       question() {
         return numberToQuestion[this.num]
+      },
+
+      questFinished() {
+        Event.$emit('quest_finished');
+
+        return this.num > this.maxQuestions;
       }
     },
 

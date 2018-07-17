@@ -38,6 +38,7 @@
 
     computed: {
       seconds() {
+        console.log(this.date);
         return (this.date - this.now) % 60;
       },
 

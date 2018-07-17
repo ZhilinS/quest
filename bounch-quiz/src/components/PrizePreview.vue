@@ -35,4 +35,8 @@
   .justified-tile {
     justify-content: center;
   }
+
+  @media (max-width: 800px) {
+
+  }
 </style>

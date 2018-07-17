@@ -31,7 +31,7 @@
           С этого момента начинается неожиданное путешествие или туда и обратно
         </h2>
 
-        <reverse-timer :date="1531938934"></reverse-timer>
+        <reverse-timer :date="openDate"></reverse-timer>
       </div>
     </div>
     <div class="hero-foot"></div>
@@ -42,6 +42,13 @@
 
   const axios = require('axios');
 
+  let stepToTime = {
+    1:1531850400,
+    2:1531936800,
+    3:1532023200,
+    4:1532109600
+  };
+
   import Notify from './Notify.vue';
   import ReverseTimer from './ReverseTimer.vue';
 
@@ -49,7 +56,14 @@
 
     data() {
       return {
-        score: 0
+        score: 0,
+        step: 0
+      }
+    },
+
+    computed: {
+      openDate() {
+        return stepToTime[this.step]
       }
     },
 
@@ -65,6 +79,13 @@
     },
 
     mounted() {
+      axios.get("http://localhost:8501/api/modal/current")
+        .then((response) => {
+          this.step = response.data.step
+        }).catch((error) => {
+          console.log(error);
+        });
+
       axios.get("http://localhost:8501/api/score/current")
         .then((response) => {
           this.score = response.data.score;
@@ -76,6 +97,15 @@
         axios.get("http://localhost:8501/api/score/current")
           .then((response) => {
             this.score = response.data.score;
+          }).catch((error) => {
+            console.log(error)
+          });
+      });
+
+      Event.$on('update_timer', () => {
+        axios.get("http://localhost:8501/api/modal/current")
+          .then((response) => {
+            this.step = response.data.step;
           }).catch((error) => {
             console.log(error)
           });

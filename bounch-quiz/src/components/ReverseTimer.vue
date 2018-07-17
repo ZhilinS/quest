@@ -1,16 +1,16 @@
 <template>
-  <div>
+  <div class="counter">
     <div class="block">
       <p class="digit">{{ hours | two_digits }}</p>
-      <p class="text">Hours</p>
+      <p class="text">Часы</p>
     </div>
     <div class="block">
       <p class="digit">{{ minutes | two_digits }}</p>
-      <p class="text">Minutes</p>
+      <p class="text">Минуты</p>
     </div>
     <div class="block">
       <p class="digit">{{ seconds | two_digits }}</p>
-      <p class="text">Seconds</p>
+      <p class="text">Секунды</p>
     </div>
   </div>
 </template>
@@ -60,8 +60,8 @@
   }
 
   .text {
-    color: #1abc9c;
-    font-size: 40px;
+    color: white;
+    font-size: 20px;
     font-weight: 400;
     margin-top:10px;
     margin-bottom: 10px;
@@ -70,9 +70,15 @@
 
   .digit {
     color: #ecf0f1;
-    font-size: 150px;
+    font-size: 50px;
     font-weight: 100;
     margin: 10px;
     text-align: center;
   }
+
+  .counter {
+    display: flex;
+    justify-content: center;
+  }
+
 </style>

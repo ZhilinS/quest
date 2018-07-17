@@ -23,6 +23,7 @@ public class ModalController {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("submit")
     public void submit(@RequestBody TypedNumber number) {
+        System.out.println("GOT : " + number.enteredNumber);
         stepsRepo.save(
                 new Step(number.step)
         );

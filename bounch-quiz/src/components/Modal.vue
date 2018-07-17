@@ -68,7 +68,8 @@
             this.num = '';
             this.danger = '';
 
-            Event.$emit('update_score')
+            Event.$emit('update_score');
+            Event.$emit('update_timer');
           }).catch((error) => {
             console.log(error)
           });

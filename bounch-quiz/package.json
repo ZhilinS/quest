@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "vue": "^2.5.11"
+    "vue": "^2.5.11",
+    "vue-youtube": "^1.2.5",
+    "vue-youtube-embed": "^2.2.1"
   },
   "browserslist": [
     "> 1%",

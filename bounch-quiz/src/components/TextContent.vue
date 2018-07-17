@@ -6,18 +6,18 @@
           <acrticle class="tile is-child">
             <p class="title" style="text-align: center; color: white">Маленькая шалость</p>
             <div class="content">
-              <p>
+              <p class="text-content">
                 В конце каждого дня тут будут появляться небольшие задания
                 просто для того, чтобы немного отдохнуть от рабочей рутины.
               </p>
-              <p>
+              <p class="text-content">
                 Но вот только просто так выполнять задания - этот скучно.
               </p>
-              <p>
+              <p class="text-content">
                 Поэтому у тебя есть возможность подзаработать немного и потом
                 потратить эти кредиты (поцелуйчики) с умом!
               </p>
-              <p>
+              <p class="text-content">
                 По любым вопросам ты знаешь куда обращаться.
                 Если закончилась зарядка для мозгов - ты опять знаешь куда идти ;)
               </p>
@@ -38,7 +38,7 @@
 </script>
 
 <style>
-  p {
+  p.text-content {
     text-align: justify;
     color: white;
   }
@@ -52,6 +52,6 @@
   }
 
   .with-image {
-    background: url("../assets/chart.png") no-repeat center center fixed;
+    background: url("../assets/tada.png") no-repeat center center fixed;
   }
 </style>

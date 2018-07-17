@@ -1,7 +1,7 @@
 <template>
   <div v-if="showModal">
     <div class="modal is-active">
-      <div class="modal-background"></div>
+      <div class="modal-background" @click="closeModal"></div>
       <div class="modal-card">
         <header class="modal-card-head">
           <div class="header-margin">
@@ -28,7 +28,9 @@
 
   let stepsToNumbers = {
     1: 123123,
-    2: 321321
+    2: 321321,
+    3: 432542,
+    4: 123145
   };
 
   export default {
@@ -78,7 +80,9 @@
       },
 
       closeModal() {
-        this.dataShowModal = false;
+        if (this.modalStep !== 1) {
+          this.dataShowModal = false;
+        }
       }
     },
 

@@ -2,21 +2,25 @@
   <section class="hero is-primary is-medium is-bold">
     <notify></notify>
     <div class="hero-head">
-      <div class="navbar-item">
-        <div class="field is-grouped flex-end">
-          <div class="control-left">
-            <span>
-              <img src="../assets/kissing_hearth.png" width="30" height="30" alt="credits" class="kissing">
-            </span>
-            <span id="score">{{ score }}</span>
+        <nav class="level">
+          <div class="level-left">
+            <div class="level-item">
+            </div>
           </div>
-          <div class="control-left" @click="openModal">
-            <a class="button is-primary">
-              <span>Ввести код</span>
-            </a>
+          <div class="level-right">
+            <div class="level-item">
+              <span>
+                <img src="../assets/kissing_hearth.png" width="30" height="30" alt="credits" class="kissing">
+              </span>
+              <span id="score">{{ score }}</span>
+            </div>
+            <div class="level-item" @click="openModal">
+              <a class="button is-primary">
+                <span>Ввести код</span>
+              </a>
+            </div>
           </div>
-        </div>
-      </div>
+        </nav>
     </div>
     <div class="hero-body">
       <div class="container">
@@ -28,6 +32,7 @@
         </h2>
       </div>
     </div>
+    <div class="hero-foot"></div>
   </section>
 </template>
 
@@ -92,12 +97,24 @@
     margin: 10px;
   }
 
+  .level-item {
+    margin: 10px 0 20px 20px;
+  }
+
   .kissing {
     width: 30px;
     height: 30px;
   }
 
+  .hero-head {
+    padding: 10px 20px 0 20px;
+  }
+
   .field.is-grouped {
+    justify-content: flex-end;
+  }
+
+  .navbar-item {
     justify-content: flex-end;
   }
 

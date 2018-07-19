@@ -6,16 +6,18 @@
           <img :src="question.src" :alt="question.alt">
         </figure>
       </div>
-      <div class="card-content">
+      <div class="card-content no-padding-content">
         <div class="content question">{{ question.question }}</div>
         <hr>
-        <div class="answer" v-for="variant in question.variants">
-          <div class="variant" @click="selectVariant(variant.correct)">
-            {{ variant.text }}
-          </div>
+        <div class="variant"
+             v-for="variant in question.variants"
+             @click="selectVariant(variant.correct, variant.id)"
+             :id="variant.id"
+        >
+          {{ variant.text }}
         </div>
 
-        <a class="button is-primary" @click="checkVariant">
+        <a class="button is-primary whole-width" @click="checkVariant">
           <span>
             Смазали
           </span>
@@ -41,19 +43,23 @@
       variants: [
         {
           text: 'First variant',
-          correct: false
+          correct: false,
+          id: 1
         },
         {
           text: 'Second variant',
-          correct: false
+          correct: false,
+          id: 2
         },
         {
           text: 'Third variant',
-          correct: false
+          correct: false,
+          id: 3
         },
         {
           text: 'Fourth variant',
-          correct: true
+          correct: true,
+          id: 4
         }
       ]
     },
@@ -64,19 +70,23 @@
       variants: [
         {
           text: 'First question variant',
-          correct: false
+          correct: false,
+          id: 1
         },
         {
           text: 'Second question variant',
-          correct: true
+          correct: true,
+          id: 2
         },
         {
           text: 'Third question variant',
-          correct: false
+          correct: false,
+          id: 3
         },
         {
           text: 'Fourth question variant',
-          correct: false
+          correct: false,
+          id: 4
         }
       ]
     }
@@ -87,7 +97,12 @@
       return {
         num: 1,
         maxQuestions: 2,
-        selectedCorrect: false
+        activeVariants: {
+          1: false,
+          2: false,
+          3: false,
+          4: false
+        }
       }
     },
 
@@ -100,12 +115,22 @@
         Event.$emit('quest_finished');
 
         return this.num > this.maxQuestions;
+      },
+
+      variantId() {
+        return 1;
       }
     },
 
     methods: {
-      selectVariant(correct) {
+      selectVariant(correct, id) {
         this.selectedCorrect = correct;
+
+        Object.keys(this.activeVariants).forEach(id => {
+          document.getElementById(id).classList.remove('active')
+        });
+
+        document.getElementById(id).classList.add('active');
       },
 
       checkVariant() {
@@ -170,11 +195,34 @@
 
   .question {
     font-weight: bold;
+    padding: 10px 0 0 20px;
   }
 
   .variant {
-    border: 1px solid black;
+    border-bottom: 2px solid #e8ebef;
     cursor: pointer;
+    padding: 10px 0 10px 20px;
+  }
+
+  .variant:hover {
+    background-color: #c0ede9;
+  }
+
+  .variant.active {
+    background-color: lightseagreen;
+  }
+
+  .no-padding-content {
+    padding: 0;
+  }
+
+  .button.is-primary.whole-width {
+    height: 3rem;
+    width: 100%;
+
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
   }
 
 </style>

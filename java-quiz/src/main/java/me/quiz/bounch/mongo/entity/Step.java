@@ -9,13 +9,13 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class Step {
 
     @Id
-    private ObjectId id;
+    private final ObjectId id;
 
     @Field("step")
-    private int stepNumber;
+    private final int stepNumber;
 
     @Field("success")
-    private boolean success;
+    private final boolean success;
 
     public Step() {
         this(ObjectId.get(), 0, false);

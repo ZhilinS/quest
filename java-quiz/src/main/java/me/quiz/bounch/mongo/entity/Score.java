@@ -12,10 +12,10 @@ import java.util.Collection;
 public class Score {
 
     @Id
-    public ObjectId id;
+    private final ObjectId id;
 
     @Field("a")
-    public Collection<Answered> answered;
+    private final Collection<Answered> answered;
 
     public Score() {
         this(ObjectId.get(), new ArrayList());
@@ -36,10 +36,10 @@ public class Score {
     public static class Answered {
 
         @Field("s")
-        public int stepId;
+        private final int stepId;
 
         @Field("p")
-        public int points;
+        private final int points;
 
         public Answered() {
             this(0, 0);

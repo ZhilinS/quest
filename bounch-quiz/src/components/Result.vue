@@ -19,10 +19,15 @@
         </div>
       </div>
       <div class="container spaced">
-        <sell-item v-for="itemCart in cart" :itemCart="itemCart" @click="selectItem(itemCart.id)"></sell-item>
+        <div class="item" v-for="itemCart in cart" @click="selectItem(itemCart.id, itemCart.cost)" :id="itemCart.id">
+          <sell-item  :itemCart="itemCart"></sell-item>
+        </div>
+      </div>
+      <div class="sum" :class="notEnough">
+        {{ currentSum }}
       </div>
       <div class="check-out" @click="processPurchase">
-        <a class="button is-primary">Закупить!</a>
+        <a class="button is-primary" :disabled="disabled">Закупить!</a>
       </div>
     </div>
   </section>
@@ -38,7 +43,6 @@
 
     data() {
       return {
-        selectedItemId: 0,
         cart: [
           {
             id: 1,
@@ -80,30 +84,85 @@
             src: '',
             alt: 'nothing',
             description: 'Ничего',
-            cost: 400
+            cost: 0
           }
-        ]
+        ],
+        balance: 0,
+        sumSelected: 0,
+        itemsSelected: []
+      }
+    },
+
+    computed: {
+      currentSum() {
+        return this.balance - this.sumSelected;
+      },
+
+      notEnough() {
+        if (this.balance - this.sumSelected < 0) {
+          return 'not-enough';
+        }
+      },
+
+      disabled() {
+        return this.balance - this.sumSelected < 0;
       }
     },
 
     methods: {
-      selectItem(id) {
-        this.selectedItemId = id;
+      selectItem(id, cost) {
+        if (this.itemsSelected.indexOf(id) !== -1) {
+          this.itemsSelected.splice(this.itemsSelected.indexOf(id), 1);
+          this.sumSelected -= cost;
+
+          document.getElementById(id).classList.remove('active')
+        } else {
+          this.itemsSelected.push(id);
+          this.sumSelected += cost;
+
+          document.getElementById(id).classList.add('active');
+        }
       },
 
       processPurchase() {
-        Event.$emit('update_score');
+        if (this.balance - this.sumSelected >= 0) {
+          let resultItems = [];
 
-        axios.post('http://localhost:8501/api/cart/purchase',
-          {
-            id: this.selectedItemId
-          }
-        ).then((response) => {
-          console.log(response);
-        }).catch((error) => {
-          console.log(error)
-        });
+          this.cart.forEach(item => {
+            if (this.itemsSelected.includes(item.id)) {
+              resultItems.push(
+                {
+                  id: item.id,
+                  description: item.description,
+                  cost: item.cost
+                }
+              )
+            }
+          });
+
+          Event.$emit('update_score');
+
+          axios.post('http://localhost:8501/api/cart/purchase',
+            {
+              sum: this.sumSelected,
+              items: resultItems
+            }
+          ).then((response) => {
+            console.log(response);
+          }).catch((error) => {
+            console.log(error)
+          });
+        }
       }
+    },
+
+    mounted() {
+      axios.get("http://localhost:8501/api/score/current")
+        .then((response) => {
+          this.balance = response.data.score;
+        }).catch((error) => {
+        console.log(error)
+      });
     },
 
     components: {SellItem}
@@ -136,6 +195,26 @@
 
   .check-out {
     margin: 3em;
+  }
+
+  div.item {
+    height: 100%;
+    width: 30%;
+    cursor: pointer;
+    margin: 1em;
+  }
+
+  div.item.active {
+    border: 3px solid lightseagreen;
+  }
+
+  div.sum {
+    color: white;
+    font-weight: bold;
+  }
+
+  div.sum.not-enough {
+    color: red;
   }
 
 </style>

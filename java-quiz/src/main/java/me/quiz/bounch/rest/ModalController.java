@@ -64,7 +64,7 @@ public class ModalController {
             answered.add(
                     new Score.Answered(
                             number.step,
-                            number.step * 100
+                            100
                     )
             );
 

@@ -34,10 +34,10 @@
 <style>
 
   .card.sell-item {
-    height: 100%;
-    width: 30%;
-    cursor: pointer;
-    margin: 1em;
+    /*height: 100%;*/
+    /*width: 30%;*/
+    /*cursor: pointer;*/
+    /*margin: 1em;*/
   }
 
   .content.description {

@@ -8,13 +8,13 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class Quiz {
 
     @Id
-    private int id;
+    private final int id;
 
     @Field("c")
-    public boolean correct;
+    private final boolean correct;
 
     @Field("s")
-    public int selected;
+    private final int selected;
 
     public Quiz() {
         this(0, 0, false);
@@ -36,5 +36,9 @@ public class Quiz {
 
     public boolean correct() {
         return correct;
+    }
+
+    public int selected() {
+        return selected;
     }
 }

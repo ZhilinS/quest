@@ -47,7 +47,7 @@
     2:1531846500,
     3:1532107978,
     4:1531846800,
-    5:1563382800
+    5:1531846500
   };
 
   import Notify from './Notify.vue';
@@ -74,7 +74,7 @@
       },
 
       disabled() {
-        return this.now - stepToTime[this.step] < 0;
+        return this.now - stepToTime[this.step] < 0 || this.step === 5;
       }
     },
 

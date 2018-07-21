@@ -1,0 +1,17 @@
+---
+- name: UI REDEPLOY
+  hosts: production
+  gather_facts: false
+  tags: ui
+  tasks:
+    - name: Copy src
+      synchronize:
+        src: "{{ playbook_dir }}/../../{{ ui_root }}/"
+        dest: "{{ ui_root }}"
+        delete: true
+        rsync_opts:
+          - "--exclude=node_modules"
+          - "--exclude=.idea"
+
+  vars:
+    ui_root: "bounch-quiz"

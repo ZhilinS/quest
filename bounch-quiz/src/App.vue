@@ -17,6 +17,8 @@
 
 <script>
 
+  require.context('./assets');
+
   const axios = require('axios');
 
   import Modal from './components/Modal.vue';

@@ -141,12 +141,6 @@
     font-weight: bold;
   }
 
-  .control-left {
-    display: flex;
-    align-items: center;
-    margin: 10px;
-  }
-
   .level-item {
     margin: 10px 0 20px 20px;
   }
@@ -158,14 +152,6 @@
 
   .hero-head {
     padding: 10px 20px 0 20px;
-  }
-
-  .field.is-grouped {
-    justify-content: flex-end;
-  }
-
-  .navbar-item {
-    justify-content: flex-end;
   }
 
   .hero-body {

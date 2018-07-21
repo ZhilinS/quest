@@ -17,16 +17,17 @@
           {{ variant.text }}
         </div>
 
-        <a class="button is-primary whole-width" @click="checkVariant">
+        <a class="button is-primary whole-width" @click="sendVariant">
           <span>
             Смазали
           </span>
         </a>
       </div>
     </div>
-    <div class="content" v-if="questFinished">
-      <p>
-        Вот и закончился квест! Можно теперь ввести номер :)
+    <div class="content finished" v-if="questFinished">
+      <p class="justified">
+        Квест окончен! Теперь ты достойна пройти дальше.
+        Введи код 321321 и подожди следующего дня :)
       </p>
     </div>
   </section>
@@ -65,7 +66,7 @@
     },
     2: {
       question: 'Second question',
-      src: '../assets/car.jpg',
+      src: './dist/images/car.jpg',
       alt: 'car',
       variants: [
         {
@@ -97,6 +98,7 @@
       return {
         num: 1,
         maxQuestions: 2,
+        selectedVariant: 0,
         activeVariants: {
           1: false,
           2: false,
@@ -108,7 +110,7 @@
 
     computed: {
       question() {
-        return numberToQuestion[this.num]
+        return numberToQuestion[this.num];
       },
 
       questFinished() {
@@ -116,15 +118,12 @@
 
         return this.num > this.maxQuestions;
       },
-
-      variantId() {
-        return 1;
-      }
     },
 
     methods: {
       selectVariant(correct, id) {
         this.selectedCorrect = correct;
+        this.selectedVariant = id;
 
         Object.keys(this.activeVariants).forEach(id => {
           document.getElementById(id).classList.remove('active')
@@ -133,11 +132,16 @@
         document.getElementById(id).classList.add('active');
       },
 
-      checkVariant() {
+      sendVariant() {
+        Object.keys(this.activeVariants).forEach(id => {
+          document.getElementById(id).classList.remove('active')
+        });
+
         axios.post(
           'http://localhost:8501/api/quiz/submit',
           {
             question_number: this.num,
+            selected: this.selectedVariant,
             correct: this.selectedCorrect
           })
           .then((response) => {
@@ -147,6 +151,7 @@
         });
 
         this.selectedCorrect = false;
+        this.selectedVariant = 0;
         this.num += 1;
       }
     },
@@ -223,6 +228,15 @@
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+  }
+
+  .content.finished {
+    width: 40%;
+  }
+
+  p.justified {
+    text-align: justify;
+    color: white;
   }
 
 </style>

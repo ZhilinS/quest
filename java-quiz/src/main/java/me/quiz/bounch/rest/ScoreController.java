@@ -1,6 +1,8 @@
 package me.quiz.bounch.rest;
 
+import me.quiz.bounch.mongo.entity.Score;
 import me.quiz.bounch.mongo.entity.Step;
+import me.quiz.bounch.mongo.repo.ScoreRepo;
 import me.quiz.bounch.mongo.repo.StepsRepo;
 import me.quiz.bounch.rest.res.ScoreRes;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,20 +19,19 @@ import java.util.Optional;
 public class ScoreController {
 
     @Autowired StepsRepo stepsRepo;
+    @Autowired ScoreRepo scoreRepo;
 
     @SuppressWarnings("all")
     @GetMapping("current")
     public ScoreRes score() {
-        final List<Step> steps = stepsRepo.findAll();
-        final Optional<Integer> max = steps.stream()
-                .filter(Step::success)
-                .map(Step::stepNumber)
-                .max(Integer::compareTo);
+        final int score = scoreRepo.findAll()
+                .stream()
+                .map(Score::answered)
+                .flatMap(Collection::stream)
+                .map(Score.Answered::points)
+                .mapToInt(Integer::valueOf)
+                .sum();
 
-        if (max.isPresent()) {
-            return new ScoreRes(max.get());
-        }
-
-        return new ScoreRes();
+        return new ScoreRes(score);
     }
 }

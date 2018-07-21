@@ -1,0 +1,19 @@
+<configuration>
+
+    <appender name="SERVICE_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>{{ backend_root }}/logs/{{ backend_root }}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>{{ backend_root }}/logs/{{ backend_root }}.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>20</maxHistory>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %X{uid} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="SERVICE_FILE"/>
+    </root>
+
+</configuration>

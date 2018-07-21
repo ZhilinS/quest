@@ -28,6 +28,12 @@
       with_items:
         ['libs']
 
+    - name: Copy logback config
+      template:
+        src: logback.j2
+        dest: "{{ app_server_root }}/conf/logback.xml"
+        mode: 0644
+
     - name: Copy restart shell script
       template:
         src: ./templates/manage_app.j2

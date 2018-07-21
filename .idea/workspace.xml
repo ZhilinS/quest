@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0e56c1fe-6dc8-4ae3-8b38-1b71e5ee6f6d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/java-quiz/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/java-quiz/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-quiz/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/java-quiz/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-quiz/src/test/java/me/quiz/bounch/BounchApplicationTests.java" beforeDir="false" />
-    </list>
+    <list default="true" id="0e56c1fe-6dc8-4ae3-8b38-1b71e5ee6f6d" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="manage_app.j2" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.ansible/playbooks/templates/manage_app.j2">
+      <file leaf-file-name="logback.j2" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.ansible/playbooks/templates/logback.j2">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+            <state relative-caret-position="204">
+              <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -49,6 +45,7 @@
         <option value="$PROJECT_DIR$/.ansible/playbooks/backend.yml" />
         <option value="$PROJECT_DIR$/.ansible/playbooks/prepare.yml" />
         <option value="$PROJECT_DIR$/.ansible/playbooks/templates/manage_app.j2" />
+        <option value="$PROJECT_DIR$/.ansible/playbooks/templates/logback.j2" />
       </list>
     </option>
   </component>
@@ -1147,12 +1144,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1532204299458</updated>
-      <workItem from="1532204301368" duration="4612000" />
+      <workItem from="1532204301368" duration="4660000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4612000" />
+    <option name="totallyTimeSpent" value="4660000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1215,13 +1212,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.ansible/playbooks/backend.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="38" selection-start-line="42" selection-start-column="38" selection-end-line="42" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/java-quiz/src/main/java/me/quiz/bounch/BounchApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1233,6 +1223,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.ansible/playbooks/templates/logback.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.ansible/playbooks/backend.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.ansible/playbooks/templates/logback.j2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
         </state>
       </provider>
     </entry>

@@ -58,7 +58,7 @@
       postNumber() {
         if (this.num === stepsToNumbers[this.modalStep].toString()) {
           axios.post(
-            'http://localhost:8501/api/modal/submit',
+            'http://178.128.255.245:8501/api/modal/submit',
             {
               step: this.modalStep,
               entered_number: this.num
@@ -88,7 +88,7 @@
     },
 
     mounted() {
-      axios.get('http://localhost:8501/api/modal/step/' + this.modalStep)
+      axios.get('http://178.128.255.245:8501/api/modal/step/' + this.modalStep)
         .then((response) => {
           this.dataShowModal = !response.data.success;
         }).catch((error) => {

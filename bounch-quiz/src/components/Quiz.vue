@@ -138,7 +138,7 @@
         });
 
         axios.post(
-          'http://localhost:8501/api/quiz/submit',
+          'http://178.128.255.245:8501/api/quiz/submit',
           {
             question_number: this.num,
             selected: this.selectedVariant,
@@ -157,7 +157,7 @@
     },
 
     mounted() {
-      axios.get('http://localhost:8501/api/quiz/current')
+      axios.get('http://178.128.255.245:8501/api/quiz/current')
         .then((response) => {
           this.num = response.data.num;
         }).catch((error) => {

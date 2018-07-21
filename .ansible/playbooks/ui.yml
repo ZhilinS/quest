@@ -13,5 +13,19 @@
           - "--exclude=node_modules"
           - "--exclude=.idea"
 
+#    - name: Setup nginx conf
+#      become: true
+#      template:
+#        src: ./templates/my-nginx.conf
+#        dest: ~/my-nginx.conf
+#      notify: restart nginx
+#
+#  handlers:
+#    - name: restart nginx
+#      service:
+#        name: nginx
+#        state: restarted
+#        args: -c ~/my-nginx.conf
+
   vars:
     ui_root: "bounch-quiz"

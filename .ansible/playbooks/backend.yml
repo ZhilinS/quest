@@ -1,0 +1,45 @@
+---
+- name: BACKEND REDEPLOY
+  hosts: production
+  gather_facts: false
+  tags: backend
+  tasks:
+    - name: Compile backend
+      run_once: true
+      local_action: shell cd  {{ playbook_dir }}/../../{{ backend_root }} && ./gradlew clean install
+
+    - name: Create java folder
+      file:
+        state: directory
+        path: "{{ backend_root }}"
+
+    - name: Prepare folder structure
+      file:
+        state: directory
+        path: "{{ backend_root }}/{{ item }}"
+      with_items:
+        ['libs', 'conf', 'bin', 'pid']
+
+    - name: Copy libs
+      synchronize:
+        src: "{{ playbook_dir }}/../../{{ backend_root }}/build/{{ item }}"
+        dest: "{{ backend_root }}"
+        delete: true
+      with_items:
+        ['libs']
+
+    - name: Copy restart shell script
+      template:
+        src: ./templates/manage_app.j2
+        dest: "{{ app_server_root }}/bin/manage_app"
+        mode: 0766
+
+    - name: Restart backend
+      shell: "{{ app_server_root }}/bin/manage_app restart"
+
+  vars:
+    backend_root: "java-quiz"
+    app_server_root: '/home/{{ remote_user }}/{{ backend_root }}'
+    java_classpath: '{{ backend_root }}/libs/*:{{ backend_root }}/conf/'
+    full_main_class: 'me.quiz.bounch.BounchApplication'
+    java_opts: "{{ backend_opts }}"

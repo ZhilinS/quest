@@ -1,0 +1,130 @@
+#!/bin/sh
+
+SERVICE_NAME={{ backend_root }}
+DAEMON=/usr/bin/java
+DAEMON_OPTS="-cp {{ java_classpath }}"
+JAVA_OPTS="{{ java_opts }}"
+PIDFILE="{{ app_server_root }}/pid/{{ backend_root }}"
+EXCT_COMMAND="$DAEMON $DAEMON_OPTS $JAVA_OPTS {{ full_main_class }} >/home/{{ remote_user }}/{{ backend_root }}/{{ backend_root }}.out < /dev/null 2>&1"
+
+PID=$(cat $PIDFILE)
+
+wait_until_done()
+{
+  cnt=30
+  origcnt=$cnt
+
+  while kill -0 $PID > /dev/null 2>&1; do
+    if [ $cnt -gt 1 ]; then
+      cnt=`expr $cnt - 1`
+      echo -n "."
+      sleep 1
+    else
+      echo "Process did not complete after $origcnt seconds, killing."
+      kill -9 $PID
+
+      return 0
+    fi
+  done
+
+  return 0
+}
+
+start_service() {
+  echo " * Starting $SERVICE_NAME... "
+
+  if [ -f $PIDFILE ]; then
+    if kill -0 `$PID` > /dev/null 2>&1; then
+      echo " * $SERVICE_NAME running as process $PID.  Stop it first."
+      exit 1
+    fi
+  fi
+
+  echo " * Executing $EXCT_COMMAND"
+
+  nohup $EXCT_COMMAND & echo \$!
+
+  echo $! > $PIDFILE
+
+  e=$?
+
+  if [ $e -eq 1 ]; then
+    echo " * Already running"
+    return
+  fi
+
+  if [ $e -eq 255 ]; then
+    echo " * Couldn't start :("
+    exit 1
+  fi
+
+  echo "$SERVICE_NAME started"
+}
+
+stop_service() {
+  echo " * Stopping $SERVICE_NAME... "
+
+  if [ -f $PIDFILE ]; then
+    echo " * PID is: $PID"
+
+    if kill -0 $PID > /dev/null 2>&1; then
+      echo " * Killing the process..."
+      kill $PID > /dev/null 2>&1;
+
+      e=$?
+      if [ $e -eq 1 ]; then
+        echo "not running"
+        return
+      fi
+
+      rm $PIDFILE
+
+      echo "$SERVICE_NAME stopped"
+    else
+      retval=$?
+      echo "* No $SERVICE_NAME to stop, because kill -0 of pid $PID failed with status $retval"
+    fi
+  else
+    echo "* No $SERVICE_NAME to stop, because no pid file $PIDFILE"
+  fi
+}
+
+status_service() {
+    printf "%-50s" "Checking $SERVICE_NAME..."
+    if [ -f $PIDFILE ]; then
+        PID=`cat $PIDFILE`
+        if [ -z "`ps axf | grep ${PID} | grep -v grep`" ]; then
+            printf "%s\n" "Process dead but pidfile exists"
+            exit 1
+        else
+            echo "Running"
+        fi
+    else
+        printf "%s\n" "Service not running"
+        exit 3
+    fi
+}
+
+case "$1" in
+  status)
+    status_service
+    ;;
+  start)
+    start_service
+    ;;
+  stop)
+    stop_service
+    wait_until_done
+    ;;
+  restart)
+    stop_service
+    wait_until_done
+    start_service
+    ;;
+  *)
+    echo "Usage: service $SERVICE_NAME {start|stop|restart|status}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0

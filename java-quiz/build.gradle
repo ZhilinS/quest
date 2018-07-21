@@ -11,11 +11,7 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
 
-group = 'me.quiz'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
@@ -25,7 +21,14 @@ repositories {
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-mongodb')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: '1.5.13.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-web:1.5.13.RELEASE'
+}
+
+task install(type: Copy) {
+	dependsOn build
+
+	from configurations.runtime
+
+	into "$buildDir/libs"
 }

@@ -1,0 +1,7 @@
+---
+- name: SERVER CONFIGURATION
+  hosts: production
+  roles:
+    - role: geerlingguy.java
+      java_packages:
+        - openjdk-8-jdk

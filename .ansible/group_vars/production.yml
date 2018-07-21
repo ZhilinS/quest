@@ -1,0 +1,9 @@
+---
+remote_user: supo
+
+#---PLAYBOOK-VARS---
+backend_opts: >
+            -Xms128m
+            -Xmx256m
+            -XX:+UseG1GC
+            -XX:+HeapDumpOnOutOfMemoryError

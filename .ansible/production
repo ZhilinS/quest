@@ -1,0 +1,8 @@
+[debian-quiz]
+178.128.255.245
+
+[production:children]
+debian-quiz
+
+[all:children]
+production

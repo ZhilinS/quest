@@ -33,6 +33,14 @@
     4: 123145
   };
 
+  let stepToTime = {
+    1:1532358000,
+    2:1532444400,
+    3:1532530800,
+    4:1532617200,
+    5:1532703600,
+  };
+
   export default {
     props: ['step'],
 
@@ -41,13 +49,14 @@
         dataShowModal: false,
         modalStep: this.step,
         num: '',
-        danger: ''
+        danger: '',
+        now: Math.trunc((new Date()).getTime() / 1000)
       }
     },
 
     computed: {
       showModal() {
-        return this.dataShowModal;
+        return this.dataShowModal && this.now - stepToTime[this.modalStep] > 0;
       },
       ableToClose() {
         return this.modalStep !== 1;
@@ -88,6 +97,10 @@
     },
 
     mounted() {
+      window.setInterval(() => {
+        this.now = Math.trunc((new Date()).getTime() / 1000);
+      },1000);
+
       axios.get('http://178.128.255.245/api/modal/step/' + this.modalStep)
         .then((response) => {
           this.dataShowModal = !response.data.success;
@@ -96,7 +109,6 @@
       });
 
       Event.$on('open_modal', (id) => {
-        console.log('GOT EVENT: ' + id);
         this.dataShowModal = true;
         this.modalStep = id;
       })

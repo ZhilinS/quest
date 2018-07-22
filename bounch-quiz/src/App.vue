@@ -31,11 +31,11 @@
   import Result from './components/Result.vue';
 
   let stepToTime = {
-    1:1531846500,
-    2:1531846500,
-    3:1532107978,
-    4:1531846800,
-    5:1563382800
+    1:1532358000,
+    2:1532444400,
+    3:1532530800,
+    4:1532617200,
+    5:1532703600,
   };
 
   export default {
@@ -67,7 +67,6 @@
     created() {
       axios.get("http://178.128.255.245/api/modal/current")
         .then((response) => {
-          console.log(response.data.step)
           this.step = response.data.step
         }).catch((error) => {
         console.log(error);

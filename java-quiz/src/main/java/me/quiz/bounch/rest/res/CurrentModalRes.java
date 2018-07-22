@@ -9,7 +9,7 @@ public class CurrentModalRes {
     private final int step;
 
     public CurrentModalRes() {
-        this(0);
+        this(1);
     }
 
     public CurrentModalRes(int step) {

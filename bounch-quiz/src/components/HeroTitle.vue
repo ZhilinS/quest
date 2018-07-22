@@ -1,6 +1,6 @@
 <template>
   <section class="hero is-primary is-medium is-bold">
-    <!--<notify></notify>-->
+    <notify></notify>
     <div class="hero-head">
         <nav class="level">
           <div class="level-left">
@@ -45,11 +45,11 @@
   const axios = require('axios');
 
   let stepToTime = {
-    1:1531846500,
-    2:1531846500,
-    3:1532107978,
-    4:1531846800,
-    5:1531846500
+    1:1532358000,
+    2:1532444400,
+    3:1532530800,
+    4:1532617200,
+    5:1532703600,
   };
 
   import Notify from './Notify.vue';
@@ -72,8 +72,7 @@
       },
 
       showTimer() {
-        return this.step !== 1 && this.step !== 0
-            && this.now - stepToTime[this.step] < 0;
+        return this.now - stepToTime[this.step] < 0;
       },
 
       disabled() {

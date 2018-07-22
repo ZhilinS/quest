@@ -166,10 +166,4 @@
     }
   }
 
-  @media screen and (max-width: 375px){
-    h1.title {
-      font-size: 200px;
-    }
-  }
-
 </style>

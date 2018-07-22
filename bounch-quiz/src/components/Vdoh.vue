@@ -58,7 +58,13 @@
 </script>
 
 <style>
+  /*@media all and (max-width: 700px){*/
+    /*.changing-header {*/
+      /*font-size: 18px;*/
+      /*background-color: yellow;*/
+    /*}*/
+  /*}*/
   .changing-header {
-    font-size: 24px;
+    font-size: 18px;
   }
 </style>

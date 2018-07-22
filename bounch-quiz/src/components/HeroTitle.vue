@@ -1,6 +1,6 @@
 <template>
   <section class="hero is-primary is-medium is-bold">
-    <notify></notify>
+    <!--<notify></notify>-->
     <div class="hero-head">
         <nav class="level">
           <div class="level-left">

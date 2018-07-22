@@ -25,6 +25,8 @@
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
+          <vdoh></vdoh>
+          <br>
           Йо! Первый квест в интернете! (нет)
         </h1>
         <h2 class="subtitle">
@@ -52,6 +54,7 @@
 
   import Notify from './Notify.vue';
   import ReverseTimer from './ReverseTimer.vue';
+  import Vdoh from './Vdoh.vue';
 
   export default {
 
@@ -129,7 +132,7 @@
       });
     },
 
-    components: { Notify, ReverseTimer }
+    components: { Notify, ReverseTimer, Vdoh }
   }
 
 </script>

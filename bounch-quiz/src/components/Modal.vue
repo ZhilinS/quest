@@ -34,7 +34,7 @@
   };
 
   let stepToTime = {
-    1:1532358000,
+    1:1532368800,
     2:1532444400,
     3:1532530800,
     4:1532617200,
@@ -67,7 +67,7 @@
       postNumber() {
         if (this.num === stepsToNumbers[this.modalStep].toString()) {
           axios.post(
-            'http://178.128.255.245/api/modal/submit',
+            'http://little-magic.me/api/modal/submit',
             {
               step: this.modalStep,
               entered_number: this.num
@@ -101,7 +101,7 @@
         this.now = Math.trunc((new Date()).getTime() / 1000);
       },1000);
 
-      axios.get('http://178.128.255.245/api/modal/step/' + this.modalStep)
+      axios.get('http://little-magic.me/api/modal/step/' + this.modalStep)
         .then((response) => {
           this.dataShowModal = !response.data.success;
         }).catch((error) => {

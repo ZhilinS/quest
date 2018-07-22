@@ -65,7 +65,7 @@
     },
 
     created() {
-      axios.get("http://178.128.255.245:8501/api/modal/current")
+      axios.get("http://178.128.255.245/api/modal/current")
         .then((response) => {
           console.log(response.data.step)
           this.step = response.data.step
@@ -74,7 +74,7 @@
       });
 
       Event.$on('update_timer', () => {
-        axios.get("http://178.128.255.245:8501/api/modal/current")
+        axios.get("http://178.128.255.245/api/modal/current")
           .then((response) => {
             this.step = response.data.step;
           }).catch((error) => {

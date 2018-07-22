@@ -31,7 +31,7 @@
   import Result from './components/Result.vue';
 
   let stepToTime = {
-    1:1532368800,
+    1:1532358000,
     2:1532444400,
     3:1532530800,
     4:1532617200,

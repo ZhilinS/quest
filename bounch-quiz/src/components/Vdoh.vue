@@ -47,7 +47,7 @@
     mounted() {
       window.setInterval(() => {
         this.changingText = this.texts[Math.floor(Math.random() * this.texts.length)]
-      }, 100);
+      }, 70);
 
       window.setInterval(() => {
         this.inMotion = !this.inMotion;

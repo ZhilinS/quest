@@ -6,19 +6,9 @@
           <p class="title" style="text-align: center">Ух, что скоро будет!</p>
         </div>
         <div class="tile is-parent justified-tile">
-          <div class="tile is-child is-2">
+          <div class="tile is-child is-2" v-for="variant in this.imgs">
             <figure class="image is-4by3">
-              <img src="../assets/flowers.png">
-            </figure>
-          </div>
-          <div class="tile is-child is-2">
-            <figure class="image is-4by3">
-              <img src="../assets/wakeboard.png">
-            </figure>
-          </div>
-          <div class="tile is-child is-2">
-            <figure class="image is-4by3">
-              <img src="../assets/icecream.png">
+              <img :src="variant.src" :alt="variant.alt">
             </figure>
           </div>
         </div>
@@ -28,6 +18,27 @@
 </template>
 
 <script>
+
+  export default {
+    data() {
+      return {
+        imgs: [
+          {
+            src: './dist/images/lake_house.png',
+            alt: 'lake-house'
+          },
+          {
+            src: './dist/images/concert.png',
+            alt: 'concert'
+          },
+          {
+            src: './dist/images/hackathon.png',
+            alt: 'hackathon'
+          }
+        ]
+      }
+    }
+  }
 
 </script>
 

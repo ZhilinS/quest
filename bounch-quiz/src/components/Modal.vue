@@ -27,7 +27,7 @@
   const axios = require('axios');
 
   let stepsToNumbers = {
-    1: 123123,
+    1: 629136,
     2: 321321,
     3: 432542,
     4: 123145

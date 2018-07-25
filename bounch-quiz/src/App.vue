@@ -10,7 +10,7 @@
 
       <prize-preview></prize-preview>
       <footer-content></footer-content>
-      <modal :step="this.step"></modal>
+      <!--<modal :step="this.step"></modal>-->
     </div>
   </div>
 </template>

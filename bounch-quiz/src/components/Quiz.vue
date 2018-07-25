@@ -1,5 +1,7 @@
 <template>
   <section class="section centered">
+    <div class="content" v-if="!questFinished">
+    </div>
     <div class="card" v-if="!questFinished">
       <div class="card-image">
         <figure class="image is-4by3">

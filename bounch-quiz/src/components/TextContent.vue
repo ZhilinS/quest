@@ -4,6 +4,10 @@
       <div class="tile is-ancestor justified-tile">
         <div class="tile is-6">
           <article class="tile is-child">
+
+            <div class="tile is-4">
+              <p class="title">Привет)</p>
+            </div>
             <div class="content">
               <p class="text-content">
                 Зачем хоть что-то делать, если в твоем мире все просто остается словами?

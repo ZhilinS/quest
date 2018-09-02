@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="root" class="container">
-      <container></container>
+      <router-view></router-view>
       <footer-content></footer-content>
       <!--<modal :step="this.step"></modal>-->
     </div>

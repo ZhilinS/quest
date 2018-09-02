@@ -3,7 +3,6 @@
         <text-content v-if="!showQuiz && !showVideo && !showResult"></text-content>
         <quiz v-if="showQuiz"></quiz>
         <video-step v-if="showVideo"></video-step>
-
         <result v-if="showResult"></result>
     </div>
 </template>

@@ -109,6 +109,7 @@
       });
 
       Event.$on('open_modal', (id) => {
+        console.log("OPENING MODAL");
         this.dataShowModal = true;
         this.modalStep = id;
       })

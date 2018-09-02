@@ -8,12 +8,15 @@
 </template>
 
 <script>
+  const axios = require('axios');
+
   import TextContent from './TextContent.vue';
   import Quiz from './Quiz.vue';
   import VideoStep from './VideoStep.vue';
   import Result from '../../store/Result.vue';
 
-  const axios = require('axios');
+  import { mapGetters } from 'vuex';
+
   let stepToTime = {
     1: 1532358000,
     2: 1532444400,
@@ -32,13 +35,6 @@
     },
 
     created() {
-      axios.get("http://localhost:8501/api/modal/current")
-        .then((response) => {
-          this.step = response.data.step
-        }).catch((error) => {
-        console.log(error);
-      });
-
       Event.$on('update_timer', () => {
         axios.get("http://localhost:8501/api/modal/current")
           .then((response) => {
@@ -62,7 +58,11 @@
 
       showResult() {
         return this.step === 5
-      }
+      },
+
+      ...mapGetters([
+        'currentStep'
+      ])
     },
 
     mounted() {

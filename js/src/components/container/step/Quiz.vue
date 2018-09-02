@@ -34,8 +34,8 @@
     </div>
   </section>
 </template>
-<script>
 
+<script>
   const axios = require('axios');
 
   let numberToQuestion = {
@@ -179,7 +179,7 @@
   .centered {
     display: flex;
     justify-content: center;
-    background: url("../assets/tada.png") no-repeat center center fixed;
+    background: url("../../../assets/tada.png") no-repeat center center fixed;
   }
 
   @media (max-width: 1200px) {

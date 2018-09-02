@@ -9,7 +9,7 @@
 <script>
   import HeroTitle from './HeroTitle.vue';
   import PrizePreview from './PrizePreview.vue';
-  import Step from './Step.vue';
+  import Step from './step/Step.vue';
 
   export default {
     components: { HeroTitle, PrizePreview, Step }

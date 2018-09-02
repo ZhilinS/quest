@@ -10,7 +10,7 @@
           <div class="level-right">
             <div class="level-item">
               <span>
-                <img src="../assets/kissing_hearth.png" width="30" height="30" alt="credits" class="kissing">
+                <img src="../../assets/kissing_hearth.png" width="30" height="30" alt="credits" class="kissing">
               </span>
               <span id="score">{{ score }}</span>
             </div>
@@ -52,9 +52,9 @@
     5:1532703600,
   };
 
-  import Notify from './Notify.vue';
-  import ReverseTimer from './ReverseTimer.vue';
-  import Vdoh from './Vdoh.vue';
+  import Notify from '../Notify.vue';
+  import ReverseTimer from '../ReverseTimer.vue';
+  import Vdoh from '../Vdoh.vue';
 
   export default {
 

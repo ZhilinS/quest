@@ -11,7 +11,7 @@
   import TextContent from './TextContent.vue';
   import Quiz from './Quiz.vue';
   import VideoStep from './VideoStep.vue';
-  import Result from './Result.vue';
+  import Result from '../../store/Result.vue';
 
   const axios = require('axios');
   let stepToTime = {

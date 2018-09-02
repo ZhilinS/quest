@@ -11,7 +11,7 @@
 <script>
   require.context('./assets');
 
-  import Container from './components/Container.vue';
+  import Container from './components/container/Container.vue';
   import Modal from './components/Modal.vue';
   import FooterContent from './components/FooterContent.vue';
 

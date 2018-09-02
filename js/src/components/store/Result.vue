@@ -178,7 +178,7 @@
   }
 
   .with-image {
-    background: url("../assets/tada.png") no-repeat center center fixed;
+    background: url("../../assets/tada.png") no-repeat center center fixed;
   }
 
   .spaced {

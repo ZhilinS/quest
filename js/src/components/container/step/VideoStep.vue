@@ -12,7 +12,7 @@
 
 <style>
   .with-image {
-    background: url("../assets/tada.png") no-repeat center center fixed;
+    background: url("../../../assets/tada.png") no-repeat center center fixed;
     display: flex;
     justify-content: center;
   }

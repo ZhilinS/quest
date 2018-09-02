@@ -1,5 +1,5 @@
-import Step from './components/Step'
-import Container from './components/Container'
+import Step from './components/container/step/Step'
+import Container from './components/container/Container'
 import Store from './components/store/Store'
 
 export default [

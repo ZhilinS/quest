@@ -142,7 +142,7 @@
 
           Event.$emit('update_score');
 
-          axios.post('http://little-magic.me/api/cart/purchase',
+          axios.post('http://localhost:8501/api/cart/purchase',
             {
               sum: this.sumSelected,
               items: resultItems
@@ -157,7 +157,7 @@
     },
 
     mounted() {
-      axios.get("http://little-magic.me/api/score/current")
+      axios.get("http://localhost:8501/api/score/current")
         .then((response) => {
           this.balance = response.data.score;
         }).catch((error) => {

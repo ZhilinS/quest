@@ -1,4 +1,4 @@
-package me.quiz.bounch.config;
+package me.quiz.config;
 
 import com.mongodb.Mongo;
 import com.mongodb.MongoClient;
@@ -9,13 +9,13 @@ import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @Configuration
-@EnableMongoRepositories("me.quiz.bounch.mongo.repo")
-@ComponentScan("me.quiz.bounch.mongo.repo")
+@EnableMongoRepositories("me.quiz.mongo.repo")
+@ComponentScan("me.quiz.mongo.repo")
 public class MongoConfig extends AbstractMongoConfiguration {
 
     @Override
     protected String getDatabaseName() {
-        return "bounch";
+        return "quest";
     }
 
     @Override

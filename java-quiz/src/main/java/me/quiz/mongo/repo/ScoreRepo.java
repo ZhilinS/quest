@@ -1,6 +1,6 @@
-package me.quiz.bounch.mongo.repo;
+package me.quiz.mongo.repo;
 
-import me.quiz.bounch.mongo.entity.Score;
+import me.quiz.mongo.entity.Score;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

@@ -1,20 +1,19 @@
-package me.quiz.bounch.rest;
+package me.quiz.rest;
 
-import me.quiz.bounch.mongo.entity.Quiz;
-import me.quiz.bounch.mongo.entity.Score;
-import me.quiz.bounch.mongo.entity.Step;
-import me.quiz.bounch.mongo.repo.QuizRepo;
-import me.quiz.bounch.mongo.repo.ScoreRepo;
-import me.quiz.bounch.mongo.repo.StepsRepo;
-import me.quiz.bounch.rest.req.TypedNumber;
-import me.quiz.bounch.rest.res.CurrentModalRes;
-import me.quiz.bounch.rest.res.StepRes;
+import me.quiz.mongo.entity.Quiz;
+import me.quiz.mongo.entity.Score;
+import me.quiz.mongo.entity.Step;
+import me.quiz.mongo.repo.QuizRepo;
+import me.quiz.mongo.repo.ScoreRepo;
+import me.quiz.mongo.repo.StepsRepo;
+import me.quiz.rest.req.TypedNumber;
+import me.quiz.rest.res.CurrentModalRes;
+import me.quiz.rest.res.StepRes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 import static java.util.Objects.isNull;

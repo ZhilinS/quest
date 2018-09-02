@@ -1,4 +1,4 @@
-package me.quiz.bounch.rest.res;
+package me.quiz.rest.res;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

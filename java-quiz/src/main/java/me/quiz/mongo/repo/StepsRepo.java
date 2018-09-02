@@ -1,6 +1,6 @@
-package me.quiz.bounch.mongo.repo;
+package me.quiz.mongo.repo;
 
-import me.quiz.bounch.mongo.entity.Step;
+import me.quiz.mongo.entity.Step;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;

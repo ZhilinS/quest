@@ -1,8 +1,8 @@
-package me.quiz.bounch.rest;
+package me.quiz.rest;
 
-import me.quiz.bounch.mongo.entity.Purchase;
-import me.quiz.bounch.mongo.repo.PurchaseRepo;
-import me.quiz.bounch.rest.req.PurchaseReq;
+import me.quiz.mongo.entity.Purchase;
+import me.quiz.mongo.repo.PurchaseRepo;
+import me.quiz.rest.req.PurchaseReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,8 +15,12 @@ import static java.util.stream.Collectors.toList;
 @RequestMapping("api/cart")
 public class CartController {
 
+    private final PurchaseRepo purchaseRepo;
+
     @Autowired
-    PurchaseRepo purchaseRepo;
+    public CartController(PurchaseRepo purchaseRepo) {
+        this.purchaseRepo = purchaseRepo;
+    }
 
     @PostMapping("purchase")
     public void purchase(@RequestBody PurchaseReq purchaseReq) {

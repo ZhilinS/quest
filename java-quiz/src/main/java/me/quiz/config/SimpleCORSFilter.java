@@ -1,4 +1,4 @@
-package me.quiz.bounch.config;
+package me.quiz.config;
 
 import org.springframework.stereotype.Component;
 

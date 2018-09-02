@@ -83,7 +83,7 @@
     methods: {
       openModal() {
         if (this.now - stepToTime[this.step] > 0) {
-          axios.get("http://little-magic.me/api/modal/current")
+          axios.get("http://localhost:8501/api/modal/current")
             .then((response) => {
               Event.$emit('open_modal', response.data.step);
             }).catch((error) => {
@@ -98,14 +98,14 @@
         this.now = Math.trunc((new Date()).getTime() / 1000);
       },1000);
 
-      axios.get("http://little-magic.me/api/modal/current")
+      axios.get("http://localhost:8501/api/modal/current")
         .then((response) => {
           this.step = response.data.step
         }).catch((error) => {
           console.log(error);
         });
 
-      axios.get("http://little-magic.me/api/score/current")
+      axios.get("http://localhost:8501/api/score/current")
         .then((response) => {
           this.score = response.data.score;
         }).catch((error) => {
@@ -113,7 +113,7 @@
         });
 
       Event.$on('update_score', () => {
-        axios.get("http://little-magic.me/api/score/current")
+        axios.get("http://localhost:8501/api/score/current")
           .then((response) => {
             this.score = response.data.score;
           }).catch((error) => {
@@ -122,7 +122,7 @@
       });
 
       Event.$on('update_timer', () => {
-        axios.get("http://little-magic.me/api/modal/current")
+        axios.get("http://localhost:8501/api/modal/current")
           .then((response) => {
             this.step = response.data.step;
           }).catch((error) => {

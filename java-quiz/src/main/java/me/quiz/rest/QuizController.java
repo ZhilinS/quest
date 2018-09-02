@@ -1,18 +1,14 @@
-package me.quiz.bounch.rest;
+package me.quiz.rest;
 
-import me.quiz.bounch.mongo.entity.Quiz;
-import me.quiz.bounch.mongo.entity.Score;
-import me.quiz.bounch.mongo.repo.QuizRepo;
-import me.quiz.bounch.mongo.repo.ScoreRepo;
-import me.quiz.bounch.rest.req.QuizAnswer;
-import me.quiz.bounch.rest.res.CurrentQuizRes;
-import me.quiz.bounch.rest.res.ScoreRes;
+import me.quiz.mongo.entity.Quiz;
+import me.quiz.mongo.repo.QuizRepo;
+import me.quiz.mongo.repo.ScoreRepo;
+import me.quiz.rest.req.QuizAnswer;
+import me.quiz.rest.res.CurrentQuizRes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -20,7 +16,8 @@ import java.util.Optional;
 public class QuizController {
 
     @Autowired QuizRepo quizRepo;
-    @Autowired ScoreRepo scoreRepo;
+    @Autowired
+    ScoreRepo scoreRepo;
 
     @ResponseStatus(HttpStatus.OK)
     @PostMapping("submit")

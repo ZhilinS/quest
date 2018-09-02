@@ -1,11 +1,11 @@
-package me.quiz.bounch;
+package me.quiz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BounchApplication {
+public class App {
     public static void main(String[] args) {
-        SpringApplication.run(BounchApplication.class, args);
+        SpringApplication.run(App.class, args);
     }
 }

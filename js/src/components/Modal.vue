@@ -67,7 +67,7 @@
       postNumber() {
         if (this.num === stepsToNumbers[this.modalStep].toString()) {
           axios.post(
-            'http://little-magic.me/api/modal/submit',
+            'http://localhost:8501/api/modal/submit',
             {
               step: this.modalStep,
               entered_number: this.num
@@ -101,7 +101,7 @@
         this.now = Math.trunc((new Date()).getTime() / 1000);
       },1000);
 
-      axios.get('http://little-magic.me/api/modal/step/' + this.modalStep)
+      axios.get('http://localhost:8501/api/modal/step/' + this.modalStep)
         .then((response) => {
           this.dataShowModal = !response.data.success;
         }).catch((error) => {

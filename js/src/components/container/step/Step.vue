@@ -32,7 +32,7 @@
     },
 
     created() {
-      axios.get("http://little-magic.me/api/modal/current")
+      axios.get("http://localhost:8501/api/modal/current")
         .then((response) => {
           this.step = response.data.step
         }).catch((error) => {
@@ -40,7 +40,7 @@
       });
 
       Event.$on('update_timer', () => {
-        axios.get("http://little-magic.me/api/modal/current")
+        axios.get("http://localhost:8501/api/modal/current")
           .then((response) => {
             this.step = response.data.step;
           }).catch((error) => {

@@ -1,13 +1,8 @@
-import BaseText from './components/BaseText'
-import Kek from './components/Kek'
+import Step from './components/Step'
 
 export default [
   {
     path: "/",
-    component: BaseText
-  },
-  {
-    path: "/1",
-    component: Kek
+    component: Step
   },
 ]

@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <div id="root" class="container">
-      <hero-title></hero-title>
-      <step></step>
-      <prize-preview></prize-preview>
+      <container></container>
       <footer-content></footer-content>
       <!--<modal :step="this.step"></modal>-->
     </div>
@@ -11,21 +9,16 @@
 </template>
 
 <script>
-
   require.context('./assets');
 
-  const axios = require('axios');
-
+  import Container from './components/Container.vue';
   import Modal from './components/Modal.vue';
-  import HeroTitle from './components/HeroTitle.vue';
-  import PrizePreview from './components/PrizePreview.vue';
   import FooterContent from './components/FooterContent.vue';
-  import Step from './components/Step.vue';
 
   export default {
     name: 'app',
 
-    components: { Modal, HeroTitle, PrizePreview, FooterContent, Step }
+    components: { Modal, FooterContent, Container }
   }
 </script>
 

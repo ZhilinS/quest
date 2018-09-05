@@ -4,8 +4,7 @@ import App from './components/App.vue'
 import VueYoutube from 'vue-youtube'
 import VueRouter from 'vue-router'
 import routes from './routes.js'
-import { TOGGLE_MODAL, UPDATE_STEP, UPDATE_SCORE } from "./mutation_types";
-import { MODAL_SUBMIT } from "./actions";
+import {TOGGLE_MODAL, UPDATE_SCORE, UPDATE_STEP} from "./mutation_types";
 
 const axios = require('axios');
 
@@ -17,9 +16,8 @@ Vue.use(Vuex);
 window.Event = new Vue();
 
 Vue.filter('two_digits', function (value) {
-  if(value.toString().length <= 1)
-  {
-    return "0"+value.toString();
+  if (value.toString().length <= 1) {
+    return "0" + value.toString();
   }
   return value.toString();
 });
@@ -43,16 +41,16 @@ const store = new Vuex.Store({
     },
   },
   mutations: {
-    UPDATE_STEP (state, step) {
+    UPDATE_STEP(state, step) {
       state.step = step
     },
-    TOGGLE_MODAL (state) {
+    TOGGLE_MODAL(state) {
       state.showModal = !state.showModal
     },
-    UPDATE_SCORE (state, score) {
+    UPDATE_SCORE(state, score) {
       state.score = score
     },
-    TOGGLE_SUCCESS (state) {
+    TOGGLE_SUCCESS(state) {
       state.success = !state.success
     }
   },
@@ -76,10 +74,24 @@ const store = new Vuex.Store({
   },
 
   actions: {
-    MODAL_SUBMIT ({ commit }, step) {
+    MODAL_SUBMIT({commit}, step) {
       commit(UPDATE_STEP, step);
       commit(TOGGLE_MODAL);
 
+      axios.get("http://localhost:8501/api/score/current")
+        .then((response) => {
+          commit(UPDATE_SCORE, response.data.score);
+        }).catch((error) => {
+        console.log(error)
+      });
+    },
+    INIT_APP({commit}) {
+      axios.get("http://localhost:8501/api/modal/current")
+        .then((response) => {
+          commit(UPDATE_STEP, response.data.step);
+        }).catch((error) => {
+        console.log(error);
+      });
       axios.get("http://localhost:8501/api/score/current")
         .then((response) => {
           commit(UPDATE_SCORE, response.data.score);

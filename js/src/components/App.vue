@@ -17,25 +17,13 @@
   import Modal from './Modal.vue';
   import FooterContent from './FooterContent.vue';
 
-  import { UPDATE_STEP, UPDATE_SCORE } from "../mutation_types";
+  import { INIT_APP } from "../actions";
 
   export default {
     name: 'app',
 
     mounted() {
-      axios.get("http://localhost:8501/api/modal/current")
-        .then((response) => {
-          this.$store.commit(UPDATE_STEP, response.data.step)
-        }).catch((error) => {
-        console.log(error);
-      });
-
-      axios.get("http://localhost:8501/api/score/current")
-        .then((response) => {
-          this.$store.commit(UPDATE_SCORE, response.data.score);
-        }).catch((error) => {
-        console.log(error)
-      });
+      this.$store.dispatch(INIT_APP)
     },
 
     components: {Modal, FooterContent, Container}

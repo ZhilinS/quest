@@ -1,29 +1,28 @@
 <template>
-  <div v-if="success">
-    <div class="notification is-success">
-      <button class="delete" @click="closeNotify"></button>
-      Ой вей, правильный код! Получите ваши кредиты!
+    <div v-if="successSubmit">
+        <div class="notification is-success">
+            <button class="delete" @click="closeNotify"></button>
+            Ой вей, правильный код! Получите ваши кредиты!
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        success: false
-      }
-    },
+  import {mapGetters} from 'vuex';
+  import {TOGGLE_SUCCESS} from "../mutation_types";
 
+  export default {
     methods: {
       closeNotify() {
-        this.success = false;
+        this.$store.commit(TOGGLE_SUCCESS)
       }
     },
 
-    created() {
-      Event.$on('modal_success', () => this.success = true);
-    }
+    computed: {
+      ...mapGetters([
+        'successSubmit'
+      ])
+    },
   }
 </script>
 

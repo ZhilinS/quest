@@ -36,7 +36,7 @@
   const axios = require('axios');
 
   import {mapGetters} from 'vuex';
-  import {TOGGLE_MODAL} from "../mutation_types";
+  import {TOGGLE_MODAL, TOGGLE_SUCCESS} from "../mutation_types";
   import {MODAL_SUBMIT} from "../actions";
 
   let stepsToNumbers = {
@@ -76,11 +76,11 @@
             this.danger = '';
 
             this.$store.dispatch(MODAL_SUBMIT, this.currentStep + 1);
+            this.$store.commit(TOGGLE_SUCCESS);
           }).catch((error) => {
             console.log(error)
           });
 
-          Event.$emit('modal_success')
         } else {
           this.danger = 'is-danger'
         }

@@ -33,6 +33,7 @@ const store = new Vuex.Store({
     step: 0,
     score: 0,
     showModal: false,
+    success: false,
     stepToTime: {
       1: 1532358000,
       2: 1532444400,
@@ -50,6 +51,9 @@ const store = new Vuex.Store({
     },
     UPDATE_SCORE (state, score) {
       state.score = score
+    },
+    TOGGLE_SUCCESS (state) {
+      state.success = !state.success
     }
   },
 
@@ -65,6 +69,9 @@ const store = new Vuex.Store({
     },
     stepTill: state => {
       return state.stepToTime[state.step]
+    },
+    successSubmit: state => {
+      return state.success
     }
   },
 

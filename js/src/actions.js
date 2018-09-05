@@ -1,1 +1,1 @@
-export const STEP = 'STEP';
+export const MODAL_SUBMIT = 'MODAL_SUBMIT';

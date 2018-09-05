@@ -17,14 +17,6 @@
 
   import { mapGetters } from 'vuex';
 
-  let stepToTime = {
-    1: 1532358000,
-    2: 1532444400,
-    3: 1532530800,
-    4: 1532617200,
-    5: 1532703600,
-  };
-
   export default {
 
     data() {
@@ -34,26 +26,15 @@
       }
     },
 
-    created() {
-      Event.$on('update_timer', () => {
-        axios.get("http://localhost:8501/api/modal/current")
-          .then((response) => {
-            this.step = response.data.step;
-          }).catch((error) => {
-          console.log(error)
-        });
-      });
-    },
-
     computed: {
       showQuiz() {
-        return this.step === 2
-          &&  this.now - stepToTime[this.step] > 0;
+        return this.currentStep === 2
+          &&  this.now - this.stepTill > 0;
       },
 
       showVideo() {
-        return this.step === 3
-          && this.now - stepToTime[this.step] > 0;
+        return this.currentStep === 3
+          && this.now - this.stepTill > 0;
       },
 
       showResult() {
@@ -61,7 +42,8 @@
       },
 
       ...mapGetters([
-        'currentStep'
+        'currentStep',
+        'stepTill'
       ])
     },
 

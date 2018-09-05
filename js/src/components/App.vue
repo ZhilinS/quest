@@ -1,11 +1,11 @@
 <template>
-  <div id="app">
-    <div id="root" class="container">
-      <router-view></router-view>
-      <footer-content></footer-content>
-      <modal :step="this.step"></modal>
+    <div id="app">
+        <div id="root" class="container">
+            <router-view></router-view>
+            <footer-content></footer-content>
+            <modal></modal>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -16,7 +16,8 @@
   import Container from './container/Container.vue';
   import Modal from './Modal.vue';
   import FooterContent from './FooterContent.vue';
-  import { UPDATE_STEP } from "../mutation_types";
+
+  import { UPDATE_STEP, UPDATE_SCORE } from "../mutation_types";
 
   export default {
     name: 'app',
@@ -28,18 +29,26 @@
         }).catch((error) => {
         console.log(error);
       });
+
+      axios.get("http://localhost:8501/api/score/current")
+        .then((response) => {
+          this.$store.commit(UPDATE_SCORE, response.data.score);
+        }).catch((error) => {
+        console.log(error)
+      });
     },
 
-    components: { Modal, FooterContent, Container }
+    components: {Modal, FooterContent, Container}
   }
 </script>
 
 <style>
 
-  #root {
-    min-width: 100%;
-  }
+    #root {
+        min-width: 100%;
+    }
 
-  body {}
+    body {
+    }
 
 </style>

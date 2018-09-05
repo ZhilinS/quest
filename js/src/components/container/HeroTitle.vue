@@ -12,10 +12,10 @@
               <span>
                 <img src="../../assets/kissing_hearth.png" width="30" height="30" alt="credits" class="kissing">
               </span>
-                        <span id="score">{{ score }}</span>
+                        <span id="score">{{ currentScore }}</span>
                     </div>
                     <div class="level-item">
-                        <a class="button is-primary" :disabled="disabled" @click="openModal(currentStep)">
+                        <a class="button is-primary" :disabled="disabled" @click="openModal">
                             <span>Ввести код</span>
                         </a>
                     </div>
@@ -44,14 +44,6 @@
 
   const axios = require('axios');
 
-  let stepToTime = {
-    1: 1532358000,
-    2: 1532444400,
-    3: 1532530800,
-    4: 1532617200,
-    5: 1532703600,
-  };
-
   import Notify from '../Notify.vue';
   import ReverseTimer from '../ReverseTimer.vue';
   import Vdoh from '../Vdoh.vue';
@@ -70,28 +62,28 @@
 
     computed: {
       blockedTill() {
-        return stepToTime[this.currentStep];
+        return this.stepTill;
       },
 
       showTimer() {
-        return this.now - stepToTime[this.currentStep] < 0;
+        return this.now - this.stepTill < 0;
       },
 
       disabled() {
-        return this.now - stepToTime[this.currentStep] < 0 || this.currentStep === 5;
+        return this.now - this.stepTill < 0 || this.currentStep === 5;
       },
 
       ...mapGetters([
-        'currentStep'
+        'currentStep',
+        'stepTill',
+        'currentScore'
       ])
     },
 
     methods: {
-      openModal(step) {
-        if (this.now - stepToTime[step] > 0) {
-          console.log("CURRENT STEP: " + step);
+      openModal() {
+        if (this.now - this.stepTill > 0) {
           this.$store.commit(TOGGLE_MODAL, true);
-          // Event.$emit('open_modal', step);
         }
       }
     },
@@ -107,24 +99,6 @@
           this.score = response.data.score;
         }).catch((error) => {
         console.log(error)
-      });
-
-      Event.$on('update_score', () => {
-        axios.get("http://localhost:8501/api/score/current")
-          .then((response) => {
-            this.score = response.data.score;
-          }).catch((error) => {
-          console.log(error)
-        });
-      });
-
-      Event.$on('update_timer', () => {
-        axios.get("http://localhost:8501/api/modal/current")
-          .then((response) => {
-            this.$store.commit(UPDATE_STEP, response.data.step)
-          }).catch((error) => {
-          console.log(error)
-        });
       });
     },
 

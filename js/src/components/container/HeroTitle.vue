@@ -57,6 +57,7 @@
   import Vdoh from '../Vdoh.vue';
 
   import { mapGetters } from 'vuex';
+  import { TOGGLE_MODAL } from "../../mutation_types";
 
   export default {
 
@@ -89,7 +90,8 @@
       openModal(step) {
         if (this.now - stepToTime[step] > 0) {
           console.log("CURRENT STEP: " + step);
-          Event.$emit('open_modal', step);
+          this.$store.commit(TOGGLE_MODAL, true);
+          // Event.$emit('open_modal', step);
         }
       }
     },

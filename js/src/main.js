@@ -26,17 +26,31 @@ const router = new VueRouter({
 
 const store = new Vuex.Store({
   state: {
-    step: 0
+    step: 0,
+    showModal: false,
+    stepToTime: {
+      1: 1532358000,
+      2: 1532444400,
+      3: 1532530800,
+      4: 1532617200,
+      5: 1532703600,
+    }
   },
   mutations: {
     UPDATE_STEP (state, step) {
       state.step = step
+    },
+    TOGGLE_MODAL (state) {
+      state.showModal = !state.showModal
     }
   },
 
   getters: {
     currentStep: state => {
       return state.step
+    },
+    showModal: state => {
+      return state.showModal
     }
   }
 });

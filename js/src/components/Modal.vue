@@ -26,6 +26,9 @@
 
   const axios = require('axios');
 
+  import { mapGetters } from 'vuex';
+  import { TOGGLE_MODAL } from "../mutation_types";
+
   let stepsToNumbers = {
     1: 629136,
     2: 321321,
@@ -55,12 +58,13 @@
     },
 
     computed: {
-      showModal() {
-        return this.dataShowModal && this.now - stepToTime[this.modalStep] > 0;
-      },
       ableToClose() {
         return this.modalStep !== 1;
-      }
+      },
+
+      ...mapGetters([
+        'showModal'
+      ])
     },
 
     methods: {
@@ -91,7 +95,7 @@
 
       closeModal() {
         if (this.modalStep !== 1) {
-          this.dataShowModal = false;
+          this.$store.commit(TOGGLE_MODAL);
         }
       }
     },

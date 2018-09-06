@@ -13,7 +13,7 @@ export default new Vuex.Store({
     showModal: false,
     success: false,
     stepToTime: {
-      1: 1532358000,
+      1: 1536240031,
       2: 1532444400,
       3: 1532530800,
       4: 1532617200,

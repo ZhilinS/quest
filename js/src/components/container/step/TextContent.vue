@@ -5,10 +5,10 @@
         <div class="tile is-6">
           <article class="tile is-child">
 
-            <div class="tile is-4">
-              <p class="title">Привет)</p>
-            </div>
-            <p class="title" style="text-align: center; color: white">Маленькая шалость</p>
+            <!--<div class="tile is-4">-->
+              <!--<p class="title">Привет)</p>-->
+            <!--</div>-->
+            <p class="title" style="text-align: center; color: white">ИТАК</p>
             <div class="content">
               <p class="text-content">
                 В конце каждого дня тут будут появляться небольшие задания
@@ -19,11 +19,7 @@
               </p>
               <p class="text-content">
                 Поэтому у тебя есть возможность подзаработать немного и потом
-                потратить эти кредиты (поцелуйчики) с умом!
-              </p>
-              <p class="text-content">
-                По любым вопросам ты знаешь куда обращаться.
-                Если закончилась зарядка для мозгов - ты опять знаешь куда идти ;)
+                потратить эти кредиты с умом!
               </p>
             </div>
           </article>

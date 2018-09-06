@@ -1,6 +1,6 @@
 import Step from './components/container/step/Step'
 import Container from './components/container/Container'
-import Store from './components/store/Store'
+import Store from './components/cart/Store'
 
 export default [
   {

@@ -11,13 +11,11 @@
 <script>
   require.context('../assets');
 
-  const axios = require('axios');
-
   import Container from './container/Container.vue';
   import Modal from './Modal.vue';
   import FooterContent from './FooterContent.vue';
 
-  import { INIT_APP } from "../actions";
+  import { INIT_APP } from "../store/types/action_types";
 
   export default {
     name: 'app',

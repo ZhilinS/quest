@@ -49,7 +49,7 @@
   import Vdoh from '../Vdoh.vue';
 
   import { mapGetters } from 'vuex';
-  import { TOGGLE_MODAL } from "../../mutation_types";
+  import { TOGGLE_MODAL } from "../../store/types/mutation_types";
 
   export default {
 

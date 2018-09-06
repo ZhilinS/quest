@@ -9,7 +9,7 @@
 
 <script>
   import {mapGetters} from 'vuex';
-  import {TOGGLE_SUCCESS} from "../mutation_types";
+  import {TOGGLE_SUCCESS} from "../store/types/mutation_types";
 
   export default {
     methods: {

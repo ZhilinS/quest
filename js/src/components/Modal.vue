@@ -36,8 +36,8 @@
   const axios = require('axios');
 
   import {mapGetters} from 'vuex';
-  import {TOGGLE_MODAL, TOGGLE_SUCCESS} from "../mutation_types";
-  import {MODAL_SUBMIT} from "../actions";
+  import {TOGGLE_MODAL, TOGGLE_SUCCESS} from "../store/types/mutation_types";
+  import {MODAL_SUBMIT} from "../store/types/action_types";
 
   let stepsToNumbers = {
     1: 629136,

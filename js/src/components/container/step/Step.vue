@@ -13,7 +13,7 @@
   import TextContent from './TextContent.vue';
   import Quiz from './Quiz.vue';
   import VideoStep from './VideoStep.vue';
-  import Result from '../../store/Result.vue';
+  import Result from '../../cart/Result.vue';
 
   import { mapGetters } from 'vuex';
 

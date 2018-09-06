@@ -1,5 +1,5 @@
 [debian-quiz]
-178.128.255.245
+159.65.201.59
 
 [production:children]
 debian-quiz

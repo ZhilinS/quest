@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+  quiz-backend:
+    build: java-quiz/
+    depends_on:
+      - quiz-mongodb
+    ports:
+      - "8501:8501"
+  quiz-mongodb:
+    image: mongo:3.6
+    command: --bind_ip_all
+    ports:
+      - "27017:27017"

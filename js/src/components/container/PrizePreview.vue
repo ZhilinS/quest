@@ -24,15 +24,15 @@
       return {
         imgs: [
           {
-            src: './dist/images/lake_house.png',
+            src: './images/lake_house.png',
             alt: 'lake-house'
           },
           {
-            src: './dist/images/concert.png',
+            src: './images/concert.png',
             alt: 'concert'
           },
           {
-            src: './dist/images/hackathon.png',
+            src: './images/hackathon.png',
             alt: 'hackathon'
           }
         ]

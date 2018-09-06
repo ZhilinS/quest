@@ -4,10 +4,6 @@
       <div class="tile is-ancestor justified-tile">
         <div class="tile is-6">
           <article class="tile is-child">
-
-            <!--<div class="tile is-4">-->
-              <!--<p class="title">Привет)</p>-->
-            <!--</div>-->
             <p class="title" style="text-align: center; color: white">ИТАК</p>
             <div class="content">
               <p class="text-content">

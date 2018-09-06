@@ -8,8 +8,6 @@
 </template>
 
 <script>
-  const axios = require('axios');
-
   import TextContent from './TextContent.vue';
   import Quiz from './Quiz.vue';
   import VideoStep from './VideoStep.vue';

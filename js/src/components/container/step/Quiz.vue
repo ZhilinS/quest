@@ -140,7 +140,7 @@
         });
 
         axios.post(
-          'http://little-magic.me/api/quiz/submit',
+          'http://localhost:8501/api/quiz/submit',
           {
             question_number: this.num,
             selected: this.selectedVariant,
@@ -159,7 +159,7 @@
     },
 
     mounted() {
-      axios.get('http://little-magic.me/api/quiz/current')
+      axios.get('http://localhost:8501/api/quiz/current')
         .then((response) => {
           this.num = response.data.num;
         }).catch((error) => {

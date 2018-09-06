@@ -12,7 +12,7 @@
   import Step from './step/Step.vue';
 
   export default {
-    components: { HeroTitle, PrizePreview, Step }
+    components: {HeroTitle, PrizePreview, Step}
   }
 </script>
 

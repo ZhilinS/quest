@@ -8,19 +8,14 @@
 </template>
 
 <script>
+  const axios = require('axios');
+
   import TextContent from './TextContent.vue';
   import Quiz from './Quiz.vue';
   import VideoStep from './VideoStep.vue';
-  import Result from '../../store/Result.vue';
+  import Result from '../../cart/Result.vue';
 
-  const axios = require('axios');
-  let stepToTime = {
-    1: 1532358000,
-    2: 1532444400,
-    3: 1532530800,
-    4: 1532617200,
-    5: 1532703600,
-  };
+  import { mapGetters } from 'vuex';
 
   export default {
 
@@ -31,38 +26,25 @@
       }
     },
 
-    created() {
-      axios.get("http://little-magic.me/api/modal/current")
-        .then((response) => {
-          this.step = response.data.step
-        }).catch((error) => {
-        console.log(error);
-      });
-
-      Event.$on('update_timer', () => {
-        axios.get("http://little-magic.me/api/modal/current")
-          .then((response) => {
-            this.step = response.data.step;
-          }).catch((error) => {
-          console.log(error)
-        });
-      });
-    },
-
     computed: {
       showQuiz() {
-        return this.step === 2
-          &&  this.now - stepToTime[this.step] > 0;
+        return this.currentStep === 2
+          &&  this.now - this.stepTill > 0;
       },
 
       showVideo() {
-        return this.step === 3
-          && this.now - stepToTime[this.step] > 0;
+        return this.currentStep === 3
+          && this.now - this.stepTill > 0;
       },
 
       showResult() {
         return this.step === 5
-      }
+      },
+
+      ...mapGetters([
+        'currentStep',
+        'stepTill'
+      ])
     },
 
     mounted() {

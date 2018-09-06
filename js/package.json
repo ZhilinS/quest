@@ -1,5 +1,5 @@
 {
-  "name": "bounch-quiz",
+  "name": "quiz",
   "description": "A Vue.js project",
   "version": "1.0.0",
   "author": "Sergey Zhilin <s.zhilin@semrush.com>",
@@ -15,7 +15,8 @@
     "vue": "^2.5.11",
     "vue-router": "^3.0.1",
     "vue-youtube": "^1.2.5",
-    "vue-youtube-embed": "^2.2.1"
+    "vue-youtube-embed": "^2.2.1",
+    "vuex": "^3.0.1"
   },
   "browserslist": [
     "> 1%",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-3": "^6.24.1",
     "cross-env": "^5.0.5",

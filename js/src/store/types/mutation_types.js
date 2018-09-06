@@ -1,0 +1,4 @@
+export const UPDATE_STEP = 'UPDATE_STEP';
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const TOGGLE_SUCCESS = 'TOGGLE_SUCCESS';
+export const UPDATE_SCORE = 'UPDATE_SCORE';

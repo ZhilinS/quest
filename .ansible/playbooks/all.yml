@@ -1,0 +1,64 @@
+---
+- name: ADD DEPLOY
+  hosts: production
+  gather_facts: false
+  tags: backend,ui,all
+  tasks:
+    - name: Compile backend
+      run_once: true
+      local_action: shell cd  {{ playbook_dir }}/../../{{ backend_root }} && ./gradlew clean install
+    
+    - name: Create java folder
+      file:
+        state: directory
+        path: "{{ backend_root }}"
+
+    - name: Prepare folder structure
+      file:
+        state: directory
+        path: "{{ backend_root }}/{{ item }}"
+      with_items:
+        ['build', 'build/libs']
+
+    - name: Copy libs
+      synchronize:
+        src: "{{ playbook_dir }}/../../{{ backend_root }}/build/{{ item }}"
+        dest: "{{ backend_root }}/build/"
+        delete: true
+      with_items:
+        ['libs']
+
+    - name: Copy java Dockerfile
+      synchronize:
+        src: "{{ playbook_dir }}/../../{{ backend_root }}/{{ item }}"
+        dest: "{{ backend_root }}"
+        delete: true
+      with_items:
+        ['Dockerfile']
+
+    - name: Create js folder
+      file:
+        state: directory
+        path: "{{ js_root }}"
+
+    - name: Copy js source
+      synchronize:
+        src: "{{ playbook_dir }}/../../{{ js_root }}/{{ item }}"
+        dest: "{{ js_root }}"
+        delete: true
+      with_items:
+        ['src', 'Dockerfile', 'package.json', 'index.html', 'webpack.config.prod.js']
+
+    - name: Copy docker-compose
+      synchronize:
+        src: "{{ playbook_dir }}/../../docker-compose.yml"
+        dest: .
+        delete: true
+
+    - name: Deploy compose
+      docker_service:
+        project_src: ./
+
+  vars:
+    backend_root: "java-quiz"
+    js_root: "js"

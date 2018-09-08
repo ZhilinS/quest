@@ -11,3 +11,9 @@ services:
     command: --bind_ip_all
     ports:
       - "27017:27017"
+  quiz-ui:
+    build: js/
+    depends_on:
+      - quiz-backend
+    ports:
+      - "3000:3000"

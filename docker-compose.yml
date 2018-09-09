@@ -6,6 +6,7 @@ services:
       - quiz-mongodb
     ports:
       - "8501:8501"
+    pid: "host"
   quiz-mongodb:
     image: mongo:3.6
     command: --bind_ip_all
@@ -17,3 +18,4 @@ services:
       - quiz-backend
     ports:
       - "3000:3000"
+    pid: "host"

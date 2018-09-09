@@ -94,7 +94,7 @@
       }, 1000);
 
       // todo: Score into store as well
-      axios.get("http://localhost:8501/api/score/current")
+      axios.get("http://quiz-backend:8501/api/score/current")
         .then((response) => {
           this.score = response.data.score;
         }).catch((error) => {

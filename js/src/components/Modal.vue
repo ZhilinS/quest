@@ -66,7 +66,7 @@
       postNumber() {
         if (this.num === stepsToNumbers[this.currentStep].toString()) {
           axios.post(
-            'http://localhost:8501/api/modal/submit',
+            'http://quiz-backend:8501/api/modal/submit',
             {
               step: this.currentStep,
               entered_number: this.num

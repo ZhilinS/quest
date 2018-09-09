@@ -58,6 +58,7 @@
     - name: Deploy compose
       docker_service:
         project_src: ./
+      recreate: always
 
     #- name: Install nginx
       #apt:

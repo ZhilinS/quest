@@ -8,7 +8,4 @@ public class TypedNumber {
 
     @JsonProperty("step")
     public int step;
-
-    @JsonProperty("entered_number")
-    public int enteredNumber;
 }

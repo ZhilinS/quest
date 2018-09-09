@@ -33,7 +33,9 @@
                     С этого момента начинается неожиданное путешествие или туда и обратно
                 </h2>
 
-                <reverse-timer :date="blockedTill" v-if="showTimer"></reverse-timer>
+                <div v-if="showTimer">
+                    <reverse-timer :date="blockedTill"></reverse-timer>
+                </div>
             </div>
         </div>
         <div class="hero-foot"></div>

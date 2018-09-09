@@ -40,7 +40,7 @@
   import {MODAL_SUBMIT} from "../store/types/action_types";
 
   let stepsToNumbers = {
-    1: 629136,
+    1: 'махареп',
     2: 321321,
     3: 432542,
     4: 123145
@@ -64,12 +64,11 @@
 
     methods: {
       postNumber() {
-        if (this.num === stepsToNumbers[this.currentStep].toString()) {
+        if (this.num.toLowerCase() === stepsToNumbers[this.currentStep].toString()) {
           axios.post(
             '/api/modal/submit',
             {
-              step: this.currentStep,
-              entered_number: this.num
+              step: this.currentStep
             }
           ).then((response) => {
             this.num = '';

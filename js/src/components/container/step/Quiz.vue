@@ -40,59 +40,260 @@
 
   let numberToQuestion = {
     1: {
-      question: 'Some random question',
-      src: './dist/images/friends.png',
-      alt: 'friends',
+      question: 'Чем знаменит город Выборг?',
+      src: './images/vyborg.png',
+      alt: 'vyborg',
       variants: [
         {
-          text: 'First variant',
+          text: 'Старинными зданиями',
           correct: false,
           id: 1
         },
         {
-          text: 'Second variant',
+          text: 'Культурой',
           correct: false,
           id: 2
         },
         {
-          text: 'Third variant',
-          correct: false,
+          text: 'Корсетом',
+          correct: true,
           id: 3
         },
         {
-          text: 'Fourth variant',
-          correct: true,
+          text: 'Молодежными движениями',
+          correct: false,
           id: 4
         }
       ]
     },
     2: {
-      question: 'Second question',
-      src: './dist/images/car.jpg',
-      alt: 'car',
+      question: 'Продолжаем тему Финляндии. Как, согласно финскому поверью, был создан мир?',
+      src: './images/god.png',
+      alt: 'god',
       variants: [
         {
-          text: 'First question variant',
+          text: '7 дней, немного майнкрафта и змеюка с яблоком',
           correct: false,
           id: 1
         },
         {
-          text: 'Second question variant',
+          text: 'Глазояйцевый вуайерист помог членожопу',
           correct: true,
           id: 2
         },
         {
-          text: 'Third question variant',
+          text: 'Никто ничего не создавал. И вообще, мы в матрице',
           correct: false,
           id: 3
         },
         {
-          text: 'Fourth question variant',
+          text: 'Смазали и наляпали',
           correct: false,
           id: 4
         }
       ]
-    }
+    },
+    3: {
+      question: 'Мода за 300. Коко Шанель была известна своим безупречным вкусом. Что, согласно её высказыванию, рождает настоящую женщину?',
+      src: './images/coco.png',
+      alt: 'coco',
+      variants: [
+        {
+          text: 'Два правила женщины: обувь — на размер больше, бюстгальтер — на размер меньше',
+          correct: true,
+          id: 1
+        },
+        {
+          text: 'Шуба. Охуенная розовая шуба',
+          correct: true,
+          id: 2
+        },
+        {
+          text: 'Третье правило женщины: туфли - обязательно с носками',
+          correct: false,
+          id: 3
+        },
+        {
+          text: 'Другая настоящая женщина',
+          correct: false,
+          id: 4
+        }
+      ]
+    },
+    4: {
+      question: 'Чуть посложнее. Что в итоге сделал Хармс со старухой в своем одноименном рассказе?',
+      src: './images/harms.png',
+      alt: 'harms',
+      variants: [
+        {
+          text: 'Оставил в комнате',
+          correct: false,
+          id: 1
+        },
+        {
+          text: 'Попросил Сакирдона Михайловича отвезти тело в лес',
+          correct: false,
+          id: 2
+        },
+        {
+          text: 'Запихнул в чемодан и повез топить в болото',
+          correct: true,
+          id: 3
+        },
+        {
+          text: 'Попил c ней воды и лег спать',
+          correct: false,
+          id: 4
+        }
+      ]
+    },
+    5: {
+      question: 'Ах, какая женщина, какая женщина',
+      src: './images/woman.png',
+      alt: 'woman',
+      variants: [
+        {
+          text: 'Мне б такую',
+          correct: true,
+          id: 1
+        },
+        {
+          text: 'Дякую',
+          correct: false,
+          id: 2
+        },
+        {
+          text: 'Какая женщина?',
+          correct: false,
+          id: 3
+        },
+        {
+          text: 'Мущина, вы что, не видите?',
+          correct: false,
+          id: 4
+        }
+      ]
+    },
+    6: {
+      question: 'Поговорим об истории архитектуры. С какого здания началась история Санкт-Петербурга',
+      src: './images/piter.png',
+      alt: 'piter',
+      variants: [
+        {
+          text: 'Мега Парк на Заставской',
+          correct: false,
+          id: 1
+        },
+        {
+          text: 'Домик Петра I',
+          correct: true,
+          id: 2
+        },
+        {
+          text: 'Адмиралтейство',
+          correct: false,
+          id: 3
+        },
+        {
+          text: 'Зимний дворец',
+          correct: false,
+          id: 4
+        }
+      ]
+    },
+    7: {
+      question: 'Продолжаем архитектурную тему. Какой день считается днем рождения архитектурного клуба?',
+      src: './images/architecture.png',
+      alt: 'architecture',
+      variants: [
+        {
+          text: '3-4 августа. Вместе с семрашиком основали',
+          correct: false,
+          id: 1
+        },
+        {
+          text: '1 апреля. Шутка',
+          correct: false,
+          id: 2
+        },
+        {
+          text: '11 сентября. Совпадение?',
+          correct: false,
+          id: 3
+        },
+        {
+          text: '1-2 декабря',
+          correct: true,
+          id: 4
+        }
+      ]
+    },
+    8: {
+      question: 'Что, согласно данному мему, можно получить ',
+      src: './images/memes.png',
+      alt: 'memes',
+      variants: [
+        {
+          text: '2 года условно',
+          correct: false,
+          id: 1
+        },
+        {
+          text: '',
+          correct: false,
+          id: 2
+        },
+        {
+          text: '',
+          correct: true,
+          id: 3
+        },
+        {
+          text: '',
+          correct: false,
+          id: 4
+        }
+      ]
+    },
+    9: {
+      question: 'Кто, согласно легендам, вылупится из яйца в комнате руби?',
+      src: './images/ruby.png',
+      alt: 'ruby',
+      variants: [
+        {
+          text: 'Человек-малекула',
+          correct: false,
+          id: 1
+        },
+        {
+          text: 'Лунтик',
+          correct: false,
+          id: 2
+        },
+        {
+          text: 'la Sicario',
+          correct: true,
+          id: 3
+        },
+        {
+          text: 'Новый фронт',
+          correct: true,
+          id: 4
+        }
+      ]
+    },
+    10: {
+      question: 'Где собрались люди, для которых ты безумно дорогой человек?',
+      src: './images/all.png',
+      alt: 'all',
+      variants: [
+        {
+          text: 'Прямо рядом с тобой',
+          correct: true,
+          id: 1
+        }
+      ]
+    },
   };
 
   export default {

@@ -10,7 +10,7 @@
                 <div class="level-right">
                     <div class="level-item">
               <span>
-                <img src="../../assets/kissing_hearth.png" width="30" height="30" alt="credits" class="kissing">
+                <img src="../../assets/trubi.png" width="30" height="30" alt="credits" class="kissing">
               </span>
                         <span id="score">{{ currentScore }}</span>
                     </div>
@@ -111,6 +111,10 @@
     .kissing {
         width: 30px;
         height: 30px;
+    }
+
+    .hero.is-primary.is-medium.is-bold {
+        background-image: url("../../assets/cats.png"), linear-gradient(141deg, #009e6c 0%, #00d1b2 71%, #00e7eb 100%);
     }
 
     .hero-head {

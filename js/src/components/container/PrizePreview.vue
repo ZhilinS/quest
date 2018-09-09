@@ -24,16 +24,16 @@
       return {
         imgs: [
           {
-            src: './images/lake_house.png',
-            alt: 'lake-house'
+            src: './images/putin.png',
+            alt: 'putin'
           },
           {
-            src: './images/concert.png',
-            alt: 'concert'
+            src: './images/trex.png',
+            alt: 'trex'
           },
           {
-            src: './images/hackathon.png',
-            alt: 'hackathon'
+            src: './images/it.png',
+            alt: 'it'
           }
         ]
       }

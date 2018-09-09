@@ -59,6 +59,28 @@
       docker_service:
         project_src: ./
 
+    #- name: Install nginx
+      #apt:
+        #name=nginx
+        #state=latest
+      #become: true
+
+    #- name: Copy custom nginx config
+      #synchronize:
+        #src: "{{ playbook_dir }}/../../{{ item }}"
+        #dest: "/etc/nginx/conf.d/"
+        #delete: true
+      #with_items:
+        #['my.site.conf']
+      #notify: restart nginx
+      #become: true
+
+  #handlers:
+    #- name: restart nginx
+      #service:
+        #name=nginx
+        #state=restarted
+
   vars:
     backend_root: "java-quiz"
     js_root: "js"

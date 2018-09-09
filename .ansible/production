@@ -1,8 +1,12 @@
-[debian-quiz]
+[amster]
 159.65.201.59
 
+[germany]
+46.101.99.50
+
 [production:children]
-debian-quiz
+amster
+germany
 
 [all:children]
 production

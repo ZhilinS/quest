@@ -7,7 +7,7 @@ export default {
     commit(UPDATE_STEP, step);
     commit(TOGGLE_MODAL);
 
-    axios.get("http://quiz-backend:8501/api/score/current")
+    axios.get("/api/score/current")
       .then((response) => {
         commit(UPDATE_SCORE, response.data.score);
       }).catch((error) => {
@@ -16,13 +16,13 @@ export default {
   },
 
   INIT_APP({commit}) {
-    axios.get("http://quiz-backend:8501/api/modal/current")
+    axios.get("/api/modal/current")
       .then((response) => {
         commit(UPDATE_STEP, response.data.step);
       }).catch((error) => {
       console.log(error);
     });
-    axios.get("http://quiz-backend:8501/api/score/current")
+    axios.get("/api/score/current")
       .then((response) => {
         commit(UPDATE_SCORE, response.data.score);
       }).catch((error) => {

@@ -8,16 +8,16 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    step: 0,
+    step: 1,
     score: 0,
     showModal: false,
     success: false,
     stepToTime: {
-      1: 1536240031,
-      2: 1532444400,
-      3: 1532530800,
-      4: 1532617200,
-      5: 1532703600,
+      1: 1536505200,
+      2: 1536516000,
+      3: 1536570000,
+      4: 1536591600,
+      5: 1536602400,
     },
   },
 

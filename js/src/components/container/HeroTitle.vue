@@ -42,8 +42,6 @@
 
 <script>
 
-  const axios = require('axios');
-
   import Notify from '../Notify.vue';
   import ReverseTimer from '../ReverseTimer.vue';
   import Vdoh from '../Vdoh.vue';
@@ -92,14 +90,6 @@
       window.setInterval(() => {
         this.now = Math.trunc((new Date()).getTime() / 1000);
       }, 1000);
-
-      // todo: Score into store as well
-      axios.get("/api/score/current")
-        .then((response) => {
-          this.score = response.data.score;
-        }).catch((error) => {
-        console.log(error)
-      });
     },
 
     components: {Notify, ReverseTimer, Vdoh}

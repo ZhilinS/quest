@@ -17,8 +17,6 @@
 
   import { INIT_APP } from "../store/types/action_types";
 
-  // process.env.NODE_ENV = 'development';
-
   export default {
     name: 'app',
 

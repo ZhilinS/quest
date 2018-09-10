@@ -28,8 +28,8 @@
     </div>
     <div class="content finished" v-if="questFinished">
       <p class="justified">
-        Квест окончен! Теперь ты достойна пройти дальше.
-        Введи код 321321 и подожди следующего дня :)
+        Квест окончен! Ты показала свои знания!
+        Введи код 'перепечки' и подожди немного :)
       </p>
     </div>
   </section>
@@ -229,7 +229,7 @@
       ]
     },
     8: {
-      question: 'Что, согласно данному мему, можно получить ',
+      question: 'Что, согласно данному мему, можно получить:',
       src: './images/memes.png',
       alt: 'memes',
       variants: [
@@ -239,17 +239,17 @@
           id: 1
         },
         {
-          text: '',
+          text: 'Заряд бодрости и позитива',
           correct: false,
           id: 2
         },
         {
-          text: '',
+          text: 'Пиздячек',
           correct: true,
           id: 3
         },
         {
-          text: '',
+          text: 'Новый коктейль',
           correct: false,
           id: 4
         }
@@ -288,9 +288,24 @@
       alt: 'all',
       variants: [
         {
-          text: 'Прямо рядом с тобой',
+          text: 'Вокруг тебя',
           correct: true,
           id: 1
+        },
+        {
+          text: 'Рядом',
+          correct: true,
+          id: 2
+        },
+        {
+          text: 'Куда бы ты ни пошла',
+          correct: true,
+          id: 3
+        },
+        {
+          text: 'Да везде. Ты сама понимаешь',
+          correct: true,
+          id: 4
         }
       ]
     },
@@ -300,7 +315,7 @@
     data() {
       return {
         num: 1,
-        maxQuestions: 2,
+        maxQuestions: 10,
         selectedVariant: 0,
         activeVariants: {
           1: false,
@@ -317,8 +332,6 @@
       },
 
       questFinished() {
-        Event.$emit('quest_finished');
-
         return this.num > this.maxQuestions;
       },
     },

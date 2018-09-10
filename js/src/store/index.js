@@ -12,10 +12,11 @@ export default new Vuex.Store({
     score: 0,
     showModal: false,
     success: false,
+    quest_finished: false,
     stepToTime: {
       1: 1536516000,
-      2: 1536526800,
-      3: 1536570000,
+      2: 1536555600,
+      3: 1536591600,
       4: 1536591600,
       5: 1536602400,
     },

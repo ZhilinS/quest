@@ -10,5 +10,8 @@ export default {
   },
   TOGGLE_SUCCESS(state) {
     state.success = !state.success
+  },
+  FINISH_QUEST(state) {
+    state.quest_finished = true
   }
 }

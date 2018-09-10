@@ -447,7 +447,7 @@
   }
 
   .content.finished {
-    width: 40%;
+    width: 70%;
   }
 
   p.justified {

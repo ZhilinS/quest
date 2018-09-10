@@ -1,11 +1,14 @@
 package me.quiz.rest;
 
+import me.quiz.mongo.entity.Feedback;
 import me.quiz.mongo.entity.Quiz;
 import me.quiz.mongo.entity.Score;
 import me.quiz.mongo.entity.Step;
+import me.quiz.mongo.repo.FeedbackRepo;
 import me.quiz.mongo.repo.QuizRepo;
 import me.quiz.mongo.repo.ScoreRepo;
 import me.quiz.mongo.repo.StepsRepo;
+import me.quiz.rest.req.FeedbackReq;
 import me.quiz.rest.req.TypedNumber;
 import me.quiz.rest.res.CurrentModalRes;
 import me.quiz.rest.res.StepRes;
@@ -23,6 +26,7 @@ import static java.util.Objects.isNull;
 public class ModalController {
 
     @Autowired StepsRepo stepsRepo;
+    @Autowired FeedbackRepo feedbackRepo;
     @Autowired ScoreRepo scoreRepo;
     @Autowired QuizRepo quizRepo;
 
@@ -74,6 +78,11 @@ public class ModalController {
                     )
             );
         }
+    }
+
+    @PostMapping("feedback")
+    public void feedback(@RequestBody FeedbackReq feedback) {
+        feedbackRepo.save(new Feedback(feedback.feedback()));
     }
 
     @GetMapping("step/{number}")

@@ -148,7 +148,7 @@
           });
 
           axios.post(
-            'http://localhost:8501/api/modal/submit',
+            '/api/modal/submit',
             {
               step: this.currentStep
             }
@@ -159,7 +159,7 @@
             console.log(error)
           });
 
-          axios.post('http://localhost:8501/api/cart/purchase',
+          axios.post('/api/cart/purchase',
             {
               sum: this.sumSelected,
               items: resultItems

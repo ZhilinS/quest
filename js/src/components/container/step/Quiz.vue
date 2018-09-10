@@ -41,7 +41,7 @@
   let numberToQuestion = {
     1: {
       question: 'Чем знаменит город Выборг?',
-      src: './images/vyborg.png',
+      src: './images/vyborg.jpg',
       alt: 'vyborg',
       variants: [
         {
@@ -68,7 +68,7 @@
     },
     2: {
       question: 'Продолжаем тему Финляндии. Как, согласно финскому поверью, был создан мир?',
-      src: './images/god.png',
+      src: './images/god.jpg',
       alt: 'god',
       variants: [
         {
@@ -95,7 +95,7 @@
     },
     3: {
       question: 'Мода за 300. Коко Шанель была известна своим безупречным вкусом. Что, согласно её высказыванию, рождает настоящую женщину?',
-      src: './images/coco.png',
+      src: './images/coco.jpg',
       alt: 'coco',
       variants: [
         {
@@ -122,7 +122,7 @@
     },
     4: {
       question: 'Чуть посложнее. Что в итоге сделал Хармс со старухой в своем одноименном рассказе?',
-      src: './images/harms.png',
+      src: './images/harms.jpg',
       alt: 'harms',
       variants: [
         {
@@ -149,7 +149,7 @@
     },
     5: {
       question: 'Ах, какая женщина, какая женщина',
-      src: './images/woman.png',
+      src: './images/woman.jpg',
       alt: 'woman',
       variants: [
         {
@@ -176,7 +176,7 @@
     },
     6: {
       question: 'Поговорим об истории архитектуры. С какого здания началась история Санкт-Петербурга',
-      src: './images/piter.png',
+      src: './images/piter.jpg',
       alt: 'piter',
       variants: [
         {
@@ -203,7 +203,7 @@
     },
     7: {
       question: 'Продолжаем архитектурную тему. Какой день считается днем рождения архитектурного клуба?',
-      src: './images/architecture.png',
+      src: './images/architecture.jpg',
       alt: 'architecture',
       variants: [
         {
@@ -230,7 +230,7 @@
     },
     8: {
       question: 'Что, согласно данному мему, можно получить:',
-      src: './images/memes.png',
+      src: './images/memes.jpg',
       alt: 'memes',
       variants: [
         {
@@ -257,7 +257,7 @@
     },
     9: {
       question: 'Кто, согласно легендам, вылупится из яйца в комнате руби?',
-      src: './images/ruby.png',
+      src: './images/ruby.jpg',
       alt: 'ruby',
       variants: [
         {
@@ -284,7 +284,7 @@
     },
     10: {
       question: 'Где собрались люди, для которых ты безумно дорогой человек?',
-      src: './images/all.png',
+      src: './images/all.jpg',
       alt: 'all',
       variants: [
         {

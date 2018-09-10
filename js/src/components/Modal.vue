@@ -5,7 +5,7 @@
             <div class="modal-card">
                 <header class="modal-card-head">
                     <div class="header-margin">
-                        <p class="modal-card-title">Очень важный код</p>
+                        <p class="modal-card-title">Да что хочешь вводи, почитаем)</p>
                     </div>
                 </header>
                 <section class="modal-card-body">
@@ -43,7 +43,7 @@
     1: 'махареп',
     2: 'перепечки',
     3: 'счастьяздоровья',
-    4: 123145
+    4: ''
   };
 
   export default {
@@ -64,7 +64,7 @@
 
     methods: {
       postNumber() {
-        if (this.num.toLowerCase() === stepsToNumbers[this.currentStep].toString()) {
+        // if (this.num.toLowerCase() === stepsToNumbers[this.currentStep].toString()) {
           axios.post(
             '/api/modal/submit',
             {
@@ -80,9 +80,24 @@
             console.log(error)
           });
 
-        } else {
-          this.danger = 'is-danger'
-        }
+          axios.post(
+            '/api/modal/feedback',
+            {
+              feedback: this.num
+            }
+          ).then((response) => {
+            this.num = '';
+            this.danger = '';
+
+            this.$store.dispatch(MODAL_SUBMIT, this.currentStep + 1);
+            this.$store.commit(TOGGLE_SUCCESS);
+          }).catch((error) => {
+            console.log(error)
+          })
+        //
+        // } else {
+        //   this.danger = 'is-danger'
+        // }
       },
 
       closeModal() {

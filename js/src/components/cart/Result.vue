@@ -39,6 +39,9 @@
 
   import SellItem from './SellItem.vue'
 
+  import { mapGetters } from 'vuex';
+  import { UPDATE_STEP, UPDATE_SCORE } from "../../store/types/mutation_types";
+
   export default {
 
     data() {
@@ -47,23 +50,23 @@
           {
             id: 1,
             src: '',
-            alt: 'aqua',
-            description: 'Крутой вечер в аквапарке',
-            cost: 300
+            alt: 'trex',
+            description: 'Костюм тиранозвара',
+            cost: 200
           },
           {
             id: 2,
             src: '',
-            alt: 'hunt',
-            description: 'Охота на горилл',
-            cost: 350
+            alt: 'shoot',
+            description: 'Стрельба по мишеням с фотографиями',
+            cost: 250
           },
           {
             id: 3,
             src: '',
             alt: 'disco',
             description: 'Дискотека',
-            cost: 300
+            cost: 100
           },
           {
             id: 4,
@@ -75,19 +78,18 @@
           {
             id: 5,
             src: '',
-            alt: 'voodoo',
-            description: 'Кукла вуду человека на выбор',
+            alt: 'baloons',
+            description: 'Миллиард воздашных шариков',
             cost: 300
           },
           {
             id: 6,
             src: '',
             alt: 'nothing',
-            description: 'Ничего',
+            description: 'Да что хотите!',
             cost: 0
           }
         ],
-        balance: 0,
         sumSelected: 0,
         itemsSelected: []
       }
@@ -95,18 +97,23 @@
 
     computed: {
       currentSum() {
-        return this.balance - this.sumSelected;
+        return this.currentScore - this.sumSelected;
       },
 
       notEnough() {
-        if (this.balance - this.sumSelected < 0) {
+        if (this.currentScore - this.sumSelected < 0) {
           return 'not-enough';
         }
       },
 
       disabled() {
-        return this.balance - this.sumSelected < 0;
-      }
+        return this.currentScore - this.sumSelected < 0;
+      },
+
+      ...mapGetters([
+        'currentStep',
+        'currentScore'
+      ])
     },
 
     methods: {
@@ -125,7 +132,7 @@
       },
 
       processPurchase() {
-        if (this.balance - this.sumSelected >= 0) {
+        if (this.currentScore - this.sumSelected >= 0) {
           let resultItems = [];
 
           this.cart.forEach(item => {
@@ -140,29 +147,29 @@
             }
           });
 
-          Event.$emit('update_score');
+          axios.post(
+            'http://localhost:8501/api/modal/submit',
+            {
+              step: this.currentStep
+            }
+          ).then((response) => {
+            this.$store.commit(UPDATE_SCORE, (this.currentScore - this.sumSelected));
+            this.$store.commit(UPDATE_STEP, (this.currentStep + 1));
+          }).catch((error) => {
+            console.log(error)
+          });
 
-          axios.post('/api/cart/purchase',
+          axios.post('http://localhost:8501/api/cart/purchase',
             {
               sum: this.sumSelected,
               items: resultItems
             }
-          ).then((response) => {
-            console.log(response);
-          }).catch((error) => {
+          ).catch((error) => {
             console.log(error)
           });
+
         }
       }
-    },
-
-    mounted() {
-      axios.get("/api/score/current")
-        .then((response) => {
-          this.balance = response.data.score;
-        }).catch((error) => {
-        console.log(error)
-      });
     },
 
     components: {SellItem}

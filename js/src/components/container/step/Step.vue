@@ -43,7 +43,7 @@
       },
 
       showResult() {
-        return this.step === 5
+        return this.currentStep === 5
       },
 
       ...mapGetters([

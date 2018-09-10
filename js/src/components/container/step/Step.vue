@@ -1,7 +1,8 @@
 <template>
     <div>
-        <text-content v-if="!showQuiz && !showVideo && !showResult"></text-content>
+        <text-content v-if="!showQuiz && !showImage && !showVideo && !showResult"></text-content>
         <quiz v-if="showQuiz"></quiz>
+        <image-step v-if="showImage"></image-step>
         <video-step v-if="showVideo"></video-step>
         <result v-if="showResult"></result>
     </div>
@@ -10,6 +11,7 @@
 <script>
   import TextContent from './TextContent.vue';
   import Quiz from './Quiz.vue';
+  import ImageStep from './ImageStep.vue';
   import VideoStep from './VideoStep.vue';
   import Result from '../../cart/Result.vue';
 
@@ -30,8 +32,13 @@
           &&  this.now - this.stepTill > 0;
       },
 
-      showVideo() {
+      showImage() {
         return this.currentStep === 3
+          && this.now - this.stepTill > 0;
+      },
+
+      showVideo() {
+        return this.currentStep === 4
           && this.now - this.stepTill > 0;
       },
 
@@ -51,7 +58,7 @@
       },1000);
     },
 
-    components: { TextContent, Quiz, VideoStep, Result }
+    components: { TextContent, Quiz, VideoStep, Result, ImageStep }
   }
 
 </script>

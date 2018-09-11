@@ -4,6 +4,7 @@
             <router-view></router-view>
             <footer-content></footer-content>
             <modal></modal>
+            <giphy v-if="final"></giphy>
         </div>
     </div>
 </template>
@@ -14,6 +15,9 @@
   import Container from './container/Container.vue';
   import Modal from './Modal.vue';
   import FooterContent from './FooterContent.vue';
+  import Giphy from './Giphy.vue';
+
+  import { mapGetters } from 'vuex';
 
   import { INIT_APP } from "../store/types/action_types";
 
@@ -24,7 +28,18 @@
       this.$store.dispatch(INIT_APP)
     },
 
-    components: {Modal, FooterContent, Container}
+    computed: {
+      final() {
+        return this.currentStep === 6;
+      },
+
+      ...mapGetters([
+        'currentStep',
+      ]),
+    },
+
+
+    components: {Modal, FooterContent, Container, Giphy}
   }
 </script>
 

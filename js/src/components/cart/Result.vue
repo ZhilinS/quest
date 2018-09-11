@@ -49,44 +49,44 @@
         cart: [
           {
             id: 1,
-            src: '',
+            src: './images/trex_costume.jpg',
             alt: 'trex',
             description: 'Костюм тиранозвара',
             cost: 200
           },
           {
             id: 2,
-            src: '',
+            src: './images/shoot.jpg',
             alt: 'shoot',
             description: 'Стрельба по мишеням с фотографиями',
-            cost: 250
+            cost: 150
           },
           {
             id: 3,
-            src: '',
+            src: './images/disco.jpg',
             alt: 'disco',
             description: 'Дискотека',
-            cost: 100
+            cost: 75
           },
           {
             id: 4,
-            src: '',
+            src: './images/hug.gif',
             alt: 'coupon',
             description: 'Купон 2000 часов обнимашек',
             cost: 350
           },
           {
             id: 5,
-            src: '',
+            src: './images/balloons.jpg',
             alt: 'baloons',
             description: 'Миллиард воздашных шариков',
-            cost: 300
+            cost: 200
           },
           {
             id: 6,
-            src: '',
+            src: './images/hottabich.jpg',
             alt: 'nothing',
-            description: 'Да что хотите!',
+            description: 'Да что хотите! Хотя я сама скажу',
             cost: 0
           }
         ],

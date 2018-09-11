@@ -88,6 +88,48 @@
             alt: 'nothing',
             description: 'Да что хотите! Хотя я сама скажу',
             cost: 0
+          },
+          {
+            id: 7,
+            src: './images/stars.jpg',
+            alt: 'stars',
+            description: 'Годовой запас блесток и звездочек',
+            cost: 140
+          },
+          {
+            id: 8,
+            src: './images/dna.jpg',
+            alt: 'dna',
+            description: 'Ебовейший тест днк',
+            cost: 290
+          },
+          {
+            id: 9,
+            src: './images/sbp4.jpg',
+            alt: 'sbp4',
+            description: 'СБПЧ',
+            cost: 100
+          },
+          {
+            id: 10,
+            src: './images/merch.jpg',
+            alt: 'merch',
+            description: 'Именной мерч',
+            cost: 350
+          },
+          {
+            id: 11,
+            src: './images/postcard.jpg',
+            alt: 'postcard',
+            description: 'Внезапные открытки!',
+            cost: 100
+          },
+          {
+            id: 12,
+            src: './images/keywords.jpg',
+            alt: 'keywrods',
+            description: 'Миллион! Нет, два миллиона кейвордов!',
+            cost: 300
           }
         ],
         sumSelected: 0,

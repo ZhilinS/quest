@@ -85,13 +85,7 @@
             {
               feedback: this.num
             }
-          ).then((response) => {
-            this.num = '';
-            this.danger = '';
-
-            this.$store.dispatch(MODAL_SUBMIT, this.currentStep + 1);
-            this.$store.commit(TOGGLE_SUCCESS);
-          }).catch((error) => {
+          ).catch((error) => {
             console.log(error)
           })
         //
